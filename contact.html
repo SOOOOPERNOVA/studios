@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — ONT 오앤티</title>
+<meta name="description" content="ONT 오앤티에 프로젝트를 의뢰하거나 협업을 제안해보세요. 명확하고 투명하게, 꼭 필요한 것만 함께 만듭니다." />
+
+<meta property="og:title" content="Contact — ONT 오앤티" />
+<meta property="og:description" content="프로젝트 의뢰·협업·견적 문의를 환영합니다." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- 배경: 파스텔 + 유리버블 (모든 페이지 공통) -->
+<div class="ont-bg" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+  <span class="blob b4"></span>
+  <span class="bubble bub1"></span>
+  <span class="bubble bub2"></span>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="header">
+  <div class="header__inner">
+    <a class="brand" href="index.html" aria-label="ONT 홈">
+      <span class="brand__mark">ONT</span>
+    </a>
+    <nav class="nav" aria-label="주 메뉴">
+      <a href="about.html">About</a>
+      <a href="works.html">Works</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="intro">
+  <h1>필요한 것에 대해 이야기해주세요.</h1>
+  <p class="lead">프로젝트 의뢰, 협업 제안, 견적 문의 모두 환영합니다.</p>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact">
+  <!--
+    문의 폼 — GitHub Pages는 서버가 없어 전송에 외부 서비스가 필요합니다.
+    Formspree(무료) 가입 후 받은 주소를 아래 action에 넣으면 모든 항목이 메일로 옵니다.
+    예) action="https://formspree.io/f/abcdwxyz"
+  -->
+  <form class="form" action="https://formspree.io/f/xykqkvpn" method="POST">
+
+    <div class="form__row">
+      <div class="field">
+        <label for="name">성함 <span class="req">*</span></label>
+        <input id="name" name="name" type="text" placeholder="" required />
+      </div>
+      <div class="field">
+        <label for="company">직함 / 회사·브랜드명</label>
+        <input id="company" name="company" type="text" placeholder="예: ○○브랜드 담당자 / 개인" />
+      </div>
+    </div>
+
+    <div class="form__row">
+      <div class="field">
+        <label for="email">이메일 <span class="req">*</span></label>
+        <input id="email" name="email" type="email" placeholder="회신받을 이메일" required />
+      </div>
+      <div class="field">
+        <label for="phone">연락처</label>
+        <input id="phone" name="phone" type="tel" placeholder="선택 입력" />
+      </div>
+    </div>
+
+    <div class="form__row">
+      <div class="field">
+        <label for="type">프로젝트 유형 <span class="req">*</span></label>
+        <select id="type" name="type" required>
+          <option value="" disabled selected>선택해주세요</option>
+          <option>웹 · 앱 개발</option>
+          <option>브랜드 디자인</option>
+          <option>비주얼 · 아트웍</option>
+          <option>콘텐츠 제작</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="budget">예산<span class="req">*</span></label>
+        <select id="budget" name="budget" required>
+          <option value="" disabled selected>선택해주세요</option>
+          <option>100만원 이하</option>
+          <option>100–300만원</option>
+          <option>300–500만원</option>
+          <option>500–1,000만원</option>
+          <option>1,000만원 이상</option>
+          <option>미정 / 상담 후 결정</option>
+        </select>
+      </div>
+    </div>
+
+<div class="form__row">
+  <div class="field">
+    <label for="timeline">희망 일정</label>
+    <select id="timeline" name="timeline">
+      <option value="" disabled selected>선택해주세요</option>
+      <option>2주 이내 (급함)</option>
+      <option>1개월 이내</option>
+      <option>1–3개월</option>
+      <option>3개월 이상</option>
+      <option>미정</option>
+    </select>
+  </div>
+<div class="field">
+  <label for="plan">기획서 / 요구사항 자료</label>
+  <select id="plan" name="plan">
+    <option value="" disabled selected>선택해주세요</option>
+    <option>있음 — 기획서·요구사항 보유</option>
+    <option>일부 있음 — 대략적인 정리</option>
+    <option>없음 — 상담하며 함께 정리 희망</option>
+  </select>
+</div>
+</div>
+
+
+    <div class="field field--full">
+      <label for="message">문의 내용 <span class="req">*</span></label>
+      <textarea id="message" name="message" placeholder="어떤 프로젝트인지, 원하는 결과나 분위기를 자유롭게 적어주세요.
+참고하고 싶은 사이트나 기획서 링크가 있다면 함께 남겨주세요. (정리된 자료는 studios@ont.co.kr 로 보내주셔도 됩니다.)" required></textarea>
+    </div>
+
+    <label class="agree">
+      <input type="checkbox" name="agree" required />
+      <span>개인정보 수집·이용에 동의합니다. (문의 응대 목적)</span>
+    </label>
+
+        <button class="btn-hl" type="submit">
+        <span class="btn-hl__txt">문의 보내기</span>
+        <span class="btn-hl__arrow" aria-hidden="true"> →</span>
+        </button>
+  </form>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copy">© 2026 ONT. All rights reserved.</p>
+    <nav class="footer__links" aria-label="하단 메뉴">
+      <a href="https://ont.co.kr/" target="_blank">ONT</a>        
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="contact-form.js"></script>
+<script>
+  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+
+  ChannelIO('boot', {
+    "pluginKey": "36b7d543-9d5b-409c-bbfa-694a81587e6f"
+  });
+</script>
+</body>
+</html>
