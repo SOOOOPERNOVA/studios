@@ -8,14 +8,33 @@
 <meta property="og:description" content="웹·앱 개발, 브랜드 디자인, 콘텐츠 제작, 비주얼그래픽은 오앤티!" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://studios.ont.co.kr/images/studios_og.png" />
-<meta property="og:title" content="About — ONT 오앤티" />
-<meta property="og:url" content="https://studios.ont.co.kr/about.html" />
+<meta property="og:title" content="ONT STUDIOS | 웹사이트 제작은 오앤티!" />
+<meta property="og:url" content="https://studios.ont.co.kr/" />
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ONT STUDIOS",
+  "alternateName": ["오앤티", "오앤티 스튜디오", "오앤티디자인", "오앤티 디자인", "ONT 디자인","ONT Studios", "ONT design"],
+  "url": "https://studios.ont.co.kr",
+   "parentOrganization": {
+    "@type": "Organization",
+    "name": "ONT",
+    "url": "https://ont.co.kr"
+  },
+  "description": "명확하고 투명하게, 오직 필요한 것에만 집중합니다. 웹·앱 개발, 브랜드 디자인, 콘텐츠 제작, 비주얼그래픽은 오앤티 ONT STUDIOS!",
+  "knowsAbout": ["웹사이트 제작", "홈페이지 제작", "웹 개발", "앱 개발", "랜딩페이지 제작", "기업 홈페이지", "쇼핑몰 제작", "브랜드 디자인", "3D 포스터", "아나몰픽", "콘텐츠 제작","숏폼 대행","숏폼 편집"]
+}
+</script>
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&family=EB+Garamond:ital,wght@1,400;1,500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
+<!-- Styles -->
 <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -37,65 +56,41 @@
     <a class="brand" href="index.html" aria-label="ONT 홈">
       <span class="brand__mark">ONT</span>
     </a>
-      <nav class="nav" aria-label="주 메뉴">
-      <a href="about.html" aria-current="page">About</a>
+    <nav class="nav" aria-label="주 메뉴">
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- ===================== WHAT WE DO ===================== -->
-<section class="section about-do">
-  <h2 class="about-do__title">What We Do</h2>
-  <div class="services">
+<!-- ===================== HOME HERO ===================== -->
+<main class="home">
+  <div class="home__inner">
 
-    <div class="service">
-      <p class="service__no">01</p>
-      <h3 class="service__name">웹·앱 개발 <em>Web &amp; App</em></h3>
-      <p class="service__desc">노코드부터 커스텀 개발까지. 어떤 환경에서도 구현해냅니다.</p>
-    </div>
+    <!-- 텍스트 -->
+    <div class="home__text">
+      <h1 class="home__title">
+        <!-- 퍼시먼 꽃 심볼 — L자에 살짝 겹치게 (images/flower.png 넣기) -->
+        <img class="home__mark" src="images/flower.png" alt="" aria-hidden="true" />
+        Let's <span class="accent"><span class="accent-s">S</span>olve</span><br>Your Needs, Creatively.
+      </h1>
 
-    <div class="service">
-      <p class="service__no">02</p>
-      <h3 class="service__name">콘텐츠 제작 <em>Content</em></h3>
-      <p class="service__desc">숏폼 대행 · 바이럴 영상 · 커머셜 영상. 브랜드의 이야기를 영상으로 풀어냅니다.</p>
-    </div>
-
-    <div class="service">
-      <p class="service__no">03</p>
-      <h3 class="service__name">브랜드 디자인 <em>Brand Design</em></h3>
-      <p class="service__desc">로고 · 아이덴티티 · 패키지까지. 브랜드의 일관된 시각 체계를 설계합니다.</p>
-    </div>
-
-    <div class="service">
-      <p class="service__no">04</p>
-      <h3 class="service__name">비주얼 그래픽 <em>Visual Graphics</em></h3>
-      <p class="service__desc">키 비주얼 · 3D 디자인 · 아나몰픽. 시선을 멈추게 하는 비주얼을 만듭니다.</p>
+        <p class="home__sub">
+        <strong class="home__sub-lead">경험해본 사람만이 제대로 만들 수 있습니다.</strong>
+        다양한 제작 및 운영 경험을 바탕으로 비즈니스에 최적화된 솔루션을 제안합니다.
+        </p>
+      <a class="btn-hl" href="works.html"><span class="btn-hl__txt">포트폴리오 보러가기</span> <span class="btn-hl__arrow" aria-hidden="true">→</span></a>
     </div>
 
   </div>
-</section>
-
-<!-- ===================== APPROACH ===================== -->
-<section class="section approach">
-  <div class="section__inner">
-    <p class="approach-line">Obvious & Transparent, Only Necessary Things.</p>
-    <p class="lead">오직 필요한 것에만 집중하며, 명확하고 투명한 결과물을 만듭니다.<br>
-     불필요한 장식을 덜어낼수록 본질은 더 또렷해진다고 믿습니다.</p>
-  </div>
-</section>
-
-<!-- ===================== CTA ===================== -->
-<section class="cta">
-   <a class="btn-hl" href="contact.html"><span class="btn-hl__txt">프로젝트 문의하기</span> <span class="btn-hl__arrow" aria-hidden="true">→</span></a>
-</section>
+</main>
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="footer__inner">
     <p class="footer__copy">© 2026 ONT. All rights reserved.</p>
     <nav class="footer__links" aria-label="하단 메뉴">
-      <a href="https://ont.co.kr/" target="_blank">ONT</a>        
+      <a href="https://ont.co.kr/" target="_blank">ONT</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>

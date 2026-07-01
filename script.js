@@ -184,7 +184,7 @@
 (function(){
   var loader = document.createElement('div');
   loader.className = 'page-loader';
-  loader.innerHTML = '<img class="page-loader__flower" src="/images/ui/flower-loader.svg" alt="" aria-hidden="true">';
+  loader.innerHTML = '<img class="page-loader__flower" src="/images/flower-loader.svg" alt="" aria-hidden="true">';
   document.body.appendChild(loader);
 
   document.addEventListener('click', function(e){

@@ -1,1 +1,76 @@
-(function(_0xdad2e0,_0x127d15){var _0x4bd26d=_0xffee,_0x4c6b2b=_0xdad2e0();while(!![]){try{var _0x48139a=-parseInt(_0x4bd26d(0x1bc))/0x1+parseInt(_0x4bd26d(0x1cb))/0x2+parseInt(_0x4bd26d(0x1c4))/0x3*(parseInt(_0x4bd26d(0x1bf))/0x4)+parseInt(_0x4bd26d(0x1cd))/0x5+-parseInt(_0x4bd26d(0x1c1))/0x6+parseInt(_0x4bd26d(0x1ae))/0x7+-parseInt(_0x4bd26d(0x1a9))/0x8;if(_0x48139a===_0x127d15)break;else _0x4c6b2b['push'](_0x4c6b2b['shift']());}catch(_0x226b8b){_0x4c6b2b['push'](_0x4c6b2b['shift']());}}}(_0x28c0,0xad1a1),(function(){var _0x576cdb=_0xffee,_0xb8426a=document['querySelector'](_0x576cdb(0x1b0));if(!_0xb8426a)return;var _0x4060c5=_0xb8426a[_0x576cdb(0x1a5)](_0x576cdb(0x1a7))||'';if(!/formspree\.io/[_0x576cdb(0x1ba)](_0x4060c5))return;var _0x25d905='.form__status{font-size:15px;line-height:1.7;color:#555;margin:6px\x200\x200;}'+'.form__status:empty{display:none;}'+'.form__status.is-err{color:#c0392b;}'+_0x576cdb(0x1b9)+_0x576cdb(0x1c8)+'.form.is-sent\x20.form__status\x20.t{display:block;font-size:clamp(20px,2.4vw,26px);'+_0x576cdb(0x1ab)+'.form.is-sent\x20.form__status\x20.s{display:block;font-size:15px;color:#555;}',_0x32f052=document[_0x576cdb(0x1ce)](_0x576cdb(0x1c9));_0x32f052[_0x576cdb(0x1c7)]=_0x25d905,document['head'][_0x576cdb(0x1b2)](_0x32f052);var _0x3ee802=document[_0x576cdb(0x1ce)]('p');_0x3ee802['className']='form__status',_0x3ee802[_0x576cdb(0x1b6)](_0x576cdb(0x1b3),_0x576cdb(0x1af)),_0x3ee802['setAttribute']('aria-live',_0x576cdb(0x1b8)),_0xb8426a[_0x576cdb(0x1b2)](_0x3ee802);var _0xf8efd=_0xb8426a['querySelector'](_0x576cdb(0x1ac)),_0x2caa21=_0xf8efd?_0xf8efd[_0x576cdb(0x1c7)]:_0x576cdb(0x1aa);_0xb8426a[_0x576cdb(0x1bb)](_0x576cdb(0x1d3),function(_0x5489f8){var _0x1df244=_0x576cdb;_0x5489f8[_0x1df244(0x1ad)](),_0x3ee802[_0x1df244(0x1c0)]=_0x1df244(0x1b4),_0x3ee802[_0x1df244(0x1c7)]='',_0xf8efd&&(_0xf8efd[_0x1df244(0x1c3)]=!![],_0xf8efd['textContent']=_0x1df244(0x1a6)),fetch(_0x4060c5,{'method':'POST','body':new FormData(_0xb8426a),'headers':{'Accept':_0x1df244(0x1d2)}})[_0x1df244(0x1c5)](function(_0x4fc580){var _0x41bb14=_0x1df244;if(_0x4fc580['ok'])_0xb8426a['reset'](),_0x3ee802[_0x41bb14(0x1b5)]='<span\x20class=\x22t\x22>문의가\x20접수되었습니다\x20✓</span>'+_0x41bb14(0x1b7),_0xb8426a[_0x41bb14(0x1cf)][_0x41bb14(0x1be)](_0x41bb14(0x1c6));else return _0x4fc580['json']()[_0x41bb14(0x1c5)](function(_0x260e2a){var _0x54d4c5=_0x41bb14,_0x5bfdd4=_0x260e2a&&_0x260e2a[_0x54d4c5(0x1d1)]?_0x260e2a[_0x54d4c5(0x1d1)][_0x54d4c5(0x1cc)](function(_0x10ae24){var _0xf4f0a5=_0x54d4c5;return _0x10ae24[_0xf4f0a5(0x1c2)];})[_0x54d4c5(0x1b1)](_0x54d4c5(0x1a4)):_0x54d4c5(0x1bd);throw new Error(_0x5bfdd4);});})[_0x1df244(0x1d0)](function(){var _0x16a723=_0x1df244;_0x3ee802[_0x16a723(0x1cf)][_0x16a723(0x1be)](_0x16a723(0x1a8)),_0x3ee802[_0x16a723(0x1c7)]='전송에\x20실패했어요.\x20잠시\x20후\x20다시\x20시도하거나\x20이메일로\x20연락\x20주세요.';})[_0x1df244(0x1ca)](function(){var _0x1070f7=_0x1df244;_0xf8efd&&(_0xf8efd['disabled']=![],_0xf8efd[_0x1070f7(0x1c7)]=_0x2caa21);});});}()));function _0xffee(_0x5ba2e8,_0x4a1102){_0x5ba2e8=_0x5ba2e8-0x1a4;var _0x28c0b1=_0x28c0();var _0xffeee2=_0x28c0b1[_0x5ba2e8];return _0xffeee2;}function _0x28c0(){var _0x53a7e2=['is-err','10517096avOEUR','문의\x20보내기\x20→','font-weight:600;color:#111;letter-spacing:-.02em;margin-bottom:10px;}','button[type=\x22submit\x22]','preventDefault','5183878ysyLfL','status','.form','join','appendChild','role','form__status','innerHTML','setAttribute','<span\x20class=\x22s\x22>감사합니다.</span>','polite','.form.is-sent\x20>\x20*{display:none;}','test','addEventListener','135090KRwVtk','전송에\x20실패했어요.','add','205316aLazra','className','8402880gILfCK','message','disabled','75izijtf','then','is-sent','textContent','.form.is-sent\x20.form__status{display:block;text-align:center;padding:48px\x200;}','style','finally','2450074pRdlpT','map','1552080NiVQYL','createElement','classList','catch','errors','application/json','submit','\x20/\x20','getAttribute','보내는\x20중…','action'];_0x28c0=function(){return _0x53a7e2;};return _0x28c0();}
+/* ============================================================
+   ONT — Contact form (Formspree AJAX)
+   페이지 이동 없이, 그 자리에서 "접수 완료" 메시지를 띄움.
+
+   사용법: contact.html 의 </body> 바로 위에 아래 한 줄 추가
+       <script src="contact-form.js"></script>
+   (기존 styles.css / script.js 는 수정할 필요 없음)
+   ============================================================ */
+(function () {
+  var form = document.querySelector('.form');
+  if (!form) return;
+
+  var action = form.getAttribute('action') || '';
+  // Formspree 주소가 들어간 폼만 처리 (그 외엔 기본 동작 유지)
+  if (!/formspree\.io/.test(action)) return;
+
+  /* --- 이 기능 전용 스타일 주입 (styles.css 안 건드림) --- */
+  var css =
+    '.form__status{font-size:15px;line-height:1.7;color:#555;margin:6px 0 0;}' +
+    '.form__status:empty{display:none;}' +
+    '.form__status.is-err{color:#c0392b;}' +
+    '.form.is-sent > *{display:none;}' +
+    '.form.is-sent .form__status{display:block;text-align:center;padding:48px 0;}' +
+    '.form.is-sent .form__status .t{display:block;font-size:clamp(20px,2.4vw,26px);' +
+      'font-weight:600;color:#111;letter-spacing:-.02em;margin-bottom:10px;}' +
+    '.form.is-sent .form__status .s{display:block;font-size:15px;color:#555;}';
+  var style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
+
+  /* --- 상태 메시지 요소 --- */
+  var status = document.createElement('p');
+  status.className = 'form__status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  form.appendChild(status);
+
+  var btn = form.querySelector('button[type="submit"]');
+  var btnLabel = btn ? btn.textContent : '문의 보내기 →';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.className = 'form__status';
+    status.textContent = '';
+    if (btn) { btn.disabled = true; btn.textContent = '보내는 중…'; }
+
+    fetch(action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function (res) {
+      if (res.ok) {
+        form.reset();
+        status.innerHTML =
+          '<span class="t">문의가 접수되었습니다 ✓</span>' +
+          '<span class="s">감사합니다.</span>';
+        form.classList.add('is-sent');
+      } else {
+        return res.json().then(function (d) {
+          var msg = (d && d.errors)
+            ? d.errors.map(function (x) { return x.message; }).join(' / ')
+            : '전송에 실패했어요.';
+          throw new Error(msg);
+        });
+      }
+    })
+    .catch(function () {
+      status.classList.add('is-err');
+      status.textContent = '전송에 실패했어요. 잠시 후 다시 시도하거나 이메일로 연락 주세요.';
+    })
+    .finally(function () {
+      if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+    });
+  });
+})();

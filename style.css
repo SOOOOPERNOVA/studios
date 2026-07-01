@@ -525,10 +525,10 @@ a, button, label, .btn-hl__txt,
 .case__nav-grid,
 .gallery__slide img,
 .case__hero img{
-  cursor: url('../images/ui/pointer.png') 16 16, pointer;
+  cursor: url('../images/pointer.png') 16 16, pointer;
 }
 .filters a, .filters button{
-  cursor: url('../images/ui/pointer.png') 6 6, pointer;
+  cursor: url('../images/pointer.png') 6 6, pointer;
 }
 
 /* 배경: 추상 도형 오브제 (통이미지 대신 개별 SVG) */
