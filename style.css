@@ -1,5 +1,5 @@
 /* =========================================================
-   ONT — design tokens
+   ONT — design
    Obvious & Transparent / Only Necessary Things
    ========================================================= */
 :root{
@@ -209,20 +209,32 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   margin:0 0 clamp(26px,3.4vw,44px);
 }
 
-/* Services */
-/* 개별 블록엔 위 선만 (기존 그대로) */
+/* =========================================================
+   Services  (About — What We Do 에서 사용)
+   ========================================================= */
+/* 개별 블록엔 위 선만 */
 .service{border-top:1px solid var(--ink);padding-top:18px;}
-
-.about-do .service {
-  padding-bottom: clamp(68px, 4vw, 88px);
-  /* border-bottom 여기 넣지 마 ← 이게 문제의 원인 */
+.about-do .service{
+  padding-bottom:clamp(68px,4vw,88px);
 }
 
-/* 컨테이너 전체를 딱 한 줄로 닫기 (services — 복수형!) */
+/* 컨테이너: 데스크톱 2열*/
 .about-do .services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  row-gap:0;
+  column-gap:clamp(28px,3vw,48px);
+}
+/* 마지막 줄(03·04)만 아래 선 → 좌우로 나뉜 선 */
+.about-do .service:nth-last-child(-n+2){
   border-bottom:1px solid var(--ink);
 }
 
+/* 모바일(1열)에선 겹치지않게 */
+@media(max-width:560px){
+  .about-do .service:nth-last-child(-n+2){border-bottom:0;}
+  .about-do .service:last-child{border-bottom:1px solid var(--ink);}
+}
 
 .service__no{
   font-family:var(--body);font-size:13px;letter-spacing:.12em;font-weight:600;
@@ -242,14 +254,13 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-size:clamp(30px,5vw,60px);letter-spacing:-.03em;line-height:1.04;
   margin:0 0 clamp(36px,5vw,64px);
 }
-.about-do .services{
-  grid-template-columns:repeat(2,1fr);
-  row-gap: 0; 
-  column-gap: clamp(28px,3vw,48px);
-}
-@media(max-width:560px){.about-do .services{grid-template-columns:1fr;}}
 .about-do .service__name{font-size:clamp(18px,1.6vw,22px);}
 .about-do .service__desc{font-size:15px;max-width:none;}
+
+/* 모바일: 1열로 전환 */
+@media(max-width:560px){
+  .about-do .services{grid-template-columns:1fr;}
+}
 
 /* Approach — 브랜드 한 줄 (크지 않게) */
 .approach-line{
@@ -281,7 +292,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .btn--ghost:hover{color:var(--paper);background:var(--ink);opacity:1;}
 
 /* =========================================================
-   Contact — 폼만 가운데, 화면 80% (최대 900px)  ★이번 수정
+   Contact — 폼만 가운데, 화면 80% (최대 900px)
    ========================================================= */
 .contact{
   padding:clamp(20px,3vw,40px) clamp(20px,3vw,48px) clamp(60px,8vw,120px);
@@ -345,12 +356,11 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 /* =========================================================
    Footer
    ========================================================= */
-
 .footer__inner{
   max-width:var(--maxw);margin:0 auto;
   padding:clamp(30px,5vw,56px) clamp(20px,3vw,48px);
   display:flex;
-  align-items:center;          /* flex-end → center (같은 높이 가운데 정렬) */
+  align-items:center;
   justify-content:space-between;
   gap:24px;
   flex-wrap:wrap;
@@ -359,19 +369,17 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .footer__brand small{display:block;font-family:var(--body);font-weight:400;font-size:12px;color:var(--mute);letter-spacing:.06em;margin-top:6px;}
 .footer__links{display:flex;gap:18px;font-family:var(--body);font-size:13px;color:var(--mute);}
 .footer__links a:hover{color:var(--accent);}
-.footer__copy{width:auto;font-size:12px;color:var(--mute);;letter-spacing:.03em;margin-top:0;}
+.footer__copy{width:auto;font-size:12px;color:var(--mute);letter-spacing:.03em;margin-top:0;}
+
 /* =========================================================
-   Motion preference
+   Motion preference — 로더는 예외적으로 항상 회전
    ========================================================= */
 @media(prefers-reduced-motion:reduce){
   .page-loader__flower{animation:page-loader-spin 2.2s linear infinite !important;}
 }
 
 /* =========================================================
-   Ambient background — pastel flow (A) + glass bubbles (B)
-   아주 은은하게 콘텐츠 뒤에서 천천히 흐름 (영상 0MB)
-   ※ 세기 조절: .ont-bg::after 의 흰 베일 알파(↑면 더 연해짐),
-     .ont-bg .blob 의 opacity(↑면 더 진해짐) 두 값만 만지면 됨
+   Ambient background — pastel flow (blob)
    ========================================================= */
 .ont-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--paper);}
 .ont-bg::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.45);} /* 가독성 보호 베일 */
@@ -395,12 +403,11 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 @keyframes drift3{to{transform:translate(-4vmax,-5vmax) scale(1.10);}}
 
 @media(prefers-reduced-motion:reduce){
-  .ont-bg .blob {animation:none!important;}
+  .ont-bg .blob{animation:none!important;}
 }
 
 /* =========================================================
-   Droplet lens — 마우스 따라다니는 유리 물방울 + 닿은 글자 확대
-   (가벼운 버전: 실제 굴절 대신 글자 scale·또렷)
+   Droplet lens — 마우스 따라다니는 유리 물방울
    ========================================================= */
 .droplet{
   position:fixed;top:0;left:0;z-index:60;pointer-events:none;
@@ -413,7 +420,6 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 .droplet.is-on{opacity:1;}
 
-/* 확대 대상 글자 */
 .lens-word{display:inline-block;white-space:nowrap;}
 .lens-ch{display:inline-block;will-change:transform;transition:color .2s ease;}
 
@@ -425,14 +431,14 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 
 /* =========================================================
-   Home (메인 랜딩) — hero   ★메인 추가
+   Home (메인 랜딩) — hero
    ========================================================= */
 .home{
   min-height:calc(100svh - 78px);
-  display:flex;align-items:center;          /* 세로 중앙 */
+  display:flex;align-items:center;
   padding:clamp(28px,4vh,64px) clamp(22px,5vw,80px) clamp(40px,6vh,80px);
 }
-.home__inner{width:100%;max-width:none;}    /* 1단 · 좌측정렬 */
+.home__inner{width:100%;max-width:none;}
 .home__text{max-width:none;}
 
 .home__mark{
@@ -447,10 +453,10 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-size:clamp(40px,6.5vw,96px);line-height:1.06;letter-spacing:-.015em;
   margin:0 0 clamp(24px,2.6vw,34px);padding-top:.3em;color:var(--ink);
 }
-.home__title .accent{                        /* Solve — 부크크명조 이탤릭, 퍼시먼 */
+.home__title .accent{
   color:var(--accent);font-style:italic;font-weight:500;padding:0 .04em;
 }
-.home__title .accent-s{                       /* S만 더 크게 */
+.home__title .accent-s{
   font-size:1.28em;line-height:0;
 }
 
@@ -469,28 +475,29 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   .home{min-height:calc(100svh - 64px);align-items:flex-start;padding-top:200px;padding-bottom:48px;}
   .home__title{font-size:clamp(38px,9vw,60px);}
   .home__mark{
-    width: 25px;        /* 모바일에선 작게 (clamp 줄 삭제) */
-    top: 10px;         /* 위로 — position:absolute일 때만 작동 */
-    left: -5;
+    width: 25px;
+    top: 10px;
+    left: -5px;
   }
   .home__sub{max-width:100%;}
   .footer__inner{flex-direction:column-reverse;align-items:center;text-align:center;gap:14px;}
 }
+
 /* =========================================================
-   About — Approach 폭 넓게 + CTA 간격 축소   ★수정
+   About — Approach 폭 넓게 + CTA 간격 축소
    ========================================================= */
 .approach{padding-top:clamp(28px,4vw,56px);padding-bottom:clamp(18px,2.5vw,32px);}
 .approach .lead{max-width:820px;}
 .cta{padding-top:clamp(16px,2.5vw,36px);}
+
 /* =========================================================
    Highlight button — 텍스트 하단 절반 하이라이트 (이동 버튼)
-   ★ Contact 제출 버튼(.btn)은 솔리드 유지, 여기 영향 없음
    ========================================================= */
 .btn-hl{
   display:inline-flex;align-items:center;gap:12px;
   font-family:var(--body);font-size:clamp(16px,1.6vw,19px);font-weight:600;
   letter-spacing:-.01em;color:var(--ink);text-decoration:none;cursor:pointer;
-  background:none;border:0;padding:0;          /* ← 이 줄 추가 */
+  background:none;border:0;padding:0;
 }
 .btn-hl__txt{
   position:relative;isolation:isolate;padding:.04em .14em;color:var(--ink);
@@ -498,19 +505,19 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .btn-hl__txt::after{
   content:"";position:absolute;left:0;bottom:.02em;height:20%;width:100%;
   background:var(--accent);z-index:-1;transform-origin:left center;
-  transform:scaleX(1);                         /* 평소: 그어져 있음 */
+  transform:scaleX(1);
   transition:transform .5s var(--ease);
 }
 .btn-hl:hover .btn-hl__txt::after{
-  transform:scaleX(0);                          /* 호버 진입: 즉시 사라졌다가 */
+  transform:scaleX(0);
   transition:none;
-  animation:hl-draw .55s var(--ease) .01s forwards;  /* 좌→우로 다시 그음 */
+  animation:hl-draw .55s var(--ease) .01s forwards;
 }
 @keyframes hl-draw{
   from{transform:scaleX(0);}
   to{transform:scaleX(1);}
 }
-.btn-hl__arrow{display:inline-block;}   /* 호버 이동 없음 */
+.btn-hl__arrow{display:inline-block;}
 
 /* 라벨 안내문 */
 .label-note{
@@ -531,13 +538,14 @@ a, button, label, .btn-hl__txt,
   cursor: url('../images/pointer.png') 6 6, pointer;
 }
 
-/* 배경: 추상 도형 오브제 (통이미지 대신 개별 SVG) */
+/* =========================================================
+   배경: 추상 도형 오브제 (JS .obj 배열이 그림)
+   ========================================================= */
 .ont-bg{background:#ffffff;}
-.ont-bg .blob,.ont-bg .bubble{display:none;}
-.ont-bg::after{background:rgba(255,255,255,.55);}   /* 가독성 베일 — 그대로 둠 */
+.ont-bg::after{background:rgba(255,255,255,.55);}   /* 가독성 베일 */
 
 :root{
-  --obj-opacity:.45;   /* 오브제 농도: 진하게 1, 더 연하게 0.3 (※ 위 베일과 곱해져 더 연해짐) */
+  --obj-opacity:.45;   /* 오브제 농도 */
   --obj-scale:1;
 }
 .ont-bg .obj{
@@ -550,8 +558,11 @@ a, button, label, .btn-hl__txt,
   animation-delay:var(--delay,0s);
 }
 .ont-bg .obj svg{width:100%;height:100%;display:block;}
+
+@keyframes drift{
   from{transform:translate(0,0) rotate(var(--r,0deg));}
   to{transform:translate(var(--dx,0),var(--dy,-10px)) rotate(calc(var(--r,0deg) + var(--dr,4deg)));}
+}
 
 @media(max-width:680px){
   :root{--obj-scale:.5;}
@@ -560,6 +571,7 @@ a, button, label, .btn-hl__txt,
 @media(prefers-reduced-motion:reduce){
   .ont-bg .obj{animation:none;}
 }
+
 /* =========================================================
    Page transition — flower loader
    ========================================================= */
@@ -575,7 +587,6 @@ a, button, label, .btn-hl__txt,
   width:56px;height:56px;
   animation:page-loader-spin 2.2s linear infinite;
   will-change:transform;
-
 }
 @keyframes page-loader-spin{to{transform:rotate(360deg);}}
 @media(prefers-reduced-motion:reduce){

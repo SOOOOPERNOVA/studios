@@ -92,7 +92,7 @@
 
   /* 2) 확대 대상 텍스트를 글자 단위로 감싸기 (실패해도 물방울은 계속 동작) */
   try {
-    var SEL = '.intro h1, .about-do__title, .approach-line, .section__title, .cta h2, .service__name, .filters button';
+    var SEL = '.intro h1, .about-do__title, .approach-line, .section__title, .cta h2';
 
     function buildFrag(text) {
       var frag = document.createDocumentFragment();
