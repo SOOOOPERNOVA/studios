@@ -65,41 +65,22 @@
       </div>
     </aside>
 
-    <!-- 이미지 컬럼: 대표 이미지 + 갤러리가 세로로 쌓임.
-         ph 자리에 <img> 넣으면 자동 교체. 경로 → ../images/works/작업명/파일.jpg
-         이미지 클릭 시 라이트박스로 확대됨. -->
+    <!--포트폴리오-->
     <div class="case__media">
-      <div class="case__hero">
-        <img src="test.jpeg" alt="프로젝트명 대표 이미지" />
-        <span class="ph">Cover Image</span>
-      </div>
-
-      <!-- 세로 스택 갤러리. 가로 슬라이드로 바꾸려면 gallery--stack 클래스 제거.
-           갤러리 불필요하면 .gallery 통째로 삭제. -->
-      <div class="gallery gallery--stack">
-        <button class="gallery__btn gallery__btn--prev" aria-label="이전">‹</button>
-        <div class="gallery__track">
-          <div class="gallery__slide"><span class="ph">Shot 1</span></div>
-          <div class="gallery__slide"><span class="ph">Shot 2</span></div>
-          <div class="gallery__slide"><span class="ph">Shot 3</span></div>
-        </div>
-        <button class="gallery__btn gallery__btn--next" aria-label="다음">›</button>
-      </div>
+      <img src="Untitled-1.jpg" alt="...">
     </div>
-
   </div><!-- /.case__layout -->
+
 
   <!-- 이전 / 다음 작업: 없는 쪽 링크 class에 is-empty 추가시 숨김 -->
 <nav class="case__nav" aria-label="작업 이동">
-  <a class="" href="../이전작업.html"><span class="dir">← Prev</span></a>
-
+  <a href="../이전프로젝트/">← Prev</a>
   <a class="case__nav-grid" href="../../index.html" aria-label="작업 목록으로">
     <span></span><span></span><span></span>
     <span></span><span></span><span></span>
     <span></span><span></span><span></span>
   </a>
-
-  <a class="is-next" href="../다음작업.html"><span class="dir">Next →</span></a>
+  <a class="is-next" href="../다음프로젝트/"><span class="dir">Next →</span></a>
 </nav>
 </article>
 
@@ -116,6 +97,6 @@
   </div>
 </footer>
 
-<script src="../case.js"></script>
+<script src="../../case.js"></script>
 </body>
 </html>
