@@ -15,8 +15,8 @@
 .case__back:hover{color:var(--ink);}
 .case__eyebrow{font-family:"Raleway",sans-serif;font-weight:500;font-size:13px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;}
-.case__title{font-family:"EB Garamond","Gowun Batang",serif;font-weight:400;
-  font-size:clamp(36px,6vw,72px);line-height:1.05;letter-spacing:-.015em;
+.case__title{font-family:var(--body); font-weight:400;
+  font-size:clamp(14px,1.8vw,18px);line-height:1.05;letter-spacing:-.015em;
   margin:0 0 18px;color:var(--ink);}
 .case__title span{font-family:var(--body);font-weight:600;font-size:.32em;
   letter-spacing:-.01em;color:var(--mute);margin-left:.4em;vertical-align:middle;}
@@ -47,7 +47,7 @@
   font-size:clamp(18px,2.6vw,25px);color:var(--accent);letter-spacing:-.01em;
   margin:clamp(30px,5vw,46px) 0 2px;}
 .case__body h2:first-child{margin-top:0;}
-.case__body p{font-size:clamp(15px,1.4vw,17px);line-height:1.85;color:#3a3a3a;margin:0 0 18px;}
+.case__body p{font-size:clamp(15px,1.4vw,17px);line-height:1.5;color:#3a3a3a;margin:0 0 18px;}
 .case__link{margin-top:clamp(30px,5vw,46px);}
 
 /* ---------- Gallery — 가로 슬라이드 ---------- */
@@ -170,7 +170,7 @@
   display:flex;flex-direction:column;gap:clamp(20px,2.4vw,30px);}
 .case__info .case__heading .case__eyebrow{margin:0 0 12px;}
 .case__info .case__heading .case__title{margin:0;
-  font-size:clamp(28px,2.2vw,38px);}        /* ← 제목 작게(패널 폭에 맞춤) */
+  font-size:clamp(8px,2.2vw,28px);}        /* ← 제목 작게(패널 폭에 맞춤) */
 .case__info .case__lead{max-width:none;margin:0;font-size:clamp(15px,1.3vw,17px);}
 .case__info .case__meta{display:flex;flex-wrap:wrap;gap:18px 28px;margin:0;
   border-top:1px solid var(--hair);}        /* 가로 배열: 역할/유형/사이트보기 */
@@ -184,4 +184,27 @@
   .case__layout{grid-template-columns:1fr;gap:clamp(28px,6vw,40px);}
   .case__info{grid-column:1;grid-row:1;position:static;top:auto;}
   .case__media{grid-column:1;grid-row:2;max-width:none;}   /* 모바일은 폭 가득 */
+}
+
+.case__list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.case__list li {
+  position: relative;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.case__body li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  background: var(--vermilion);
+  border-radius: 50%;
 }
