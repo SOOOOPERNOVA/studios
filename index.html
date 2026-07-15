@@ -29,7 +29,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&family=EB+Garamond:ital,wght@1,400;1,500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&family=EB+Garamond:ital,wght@1,400;1,500&family=Raleway:wght@400;500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
 <!-- Styles -->
@@ -71,114 +71,143 @@
   </ul>
 </div>
 
-<!-- ===================== GRID =====================
-  각 카드의 <div class="card__media"> 안에 <img> 한 줄만 추가
-  예) <div class="card__media"><img src="images/work/ont.jpg" alt="오앤티">
-          <span class="card__ph">Web</span></div>
-  → 이미지가 회색 배경을 덮고, 가운데 "WEB" 라벨은 자동으로 사라짐
-  → 좌상단 제목 캡션(card__cap)은 마우스오버 때만 사진 위에 나타남
-================================================== -->
+
 <main class="grid" id="grid">
 
+  <!-- 01 · 웹진 — 단일 이미지 -->
   <a class="card" href="case/case01/index.html" data-cat="web">
     <div class="card__media">
-      <img src="case/case01/thumbnail.webp">
-      <span class="card__ph">Web</span>
+      <div class="card__img">
+        <img src="case/case01/thumbnail.webp" alt="워드프레스 기반 웹진 구축">
+        <span class="card__ph">Web</span>
+      </div>
     </div>
-    <span class="card__veil"></span>
     <div class="card__cap">
-      <p class="card__title">워드프레스 기반 웹진구축<span>— WordPress</span></p>
+      <p class="card__title">웹진<span class="card__sub">기획·커스텀·자동화구축</span></p>
+      <p class="card__meta">워드프레스</span></p>
+      
     </div>
   </a>
 
-<a class="card" href="case/case02/index.html" data-cat="content">
+  <!-- 02 · 리액티브 콘텐츠 — 단일 이미지 -->
+  <a class="card" href="case/case02/index.html" data-cat="content">
     <div class="card__media">
-      <img src="case/case02/thumbnail.webp">
-      <span class="card__ph">Content</span>
+       <div class="card__media card__media--double">
+        <div class="card__img"><img src="case/case02/thumbnail01.webp"><span class="card__ph">Web</span></div>
+        <div class="card__img"><img src="case/case02/thumbnail02.webp"><span class="card__ph">Web</span></div>
+       </div>
+      </div>
     </div>
-    <span class="card__veil"></span>
     <div class="card__cap">
-      <p class="card__title">리액티브 바이럴 콘텐츠 기획 및 제작<span>— 애니메이션 홍보 영상</span></p>
+      <p class="card__title">리액티브 바이럴 콘텐츠<span class="card__sub">애니메이션 홍보 영상</span></p>
+      <p class="card__meta"><span>숏폼 멀티채널</span></p>
     </div>
   </a>
 
-  <a class="card" href="#" data-cat="visual">
-    <div class="card__media"><span class="card__ph">Visual</span></div>
-    <span class="card__veil"></span>
-    <div class="card__cap">
-      <p class="card__title">카페 메뉴 포스터<span>— 인쇄물 / 비주얼 디렉팅</span></p>
-    </div>
-  </a>
-
+  <!-- 03-->
   <a class="card" href="#" data-cat="web">
-    <div class="card__media"><span class="card__ph">Web</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media card__media--double">
+      <div class="card__img"><span class="card__ph">Web</span></div>
+      <div class="card__img"><span class="card__ph">Web</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 04<span>— 노코드 사이트 구축</span></p>
+      <p class="card__title">웹사이트<span class="card__sub">쇼핑몰 제작</span></p>
+      <p class="card__meta"><span>카페24</span></p>
+    </div>
+  </a>
+
+  <!-- 04-->
+  <a class="card" href="#" data-cat="web">
+    <div class="card__media card__media--double">
+      <div class="card__img"><span class="card__ph">Web</span></div>
+      <div class="card__img"><span class="card__ph">Web</span></div>
+    </div>
+    <div class="card__cap">
+      <p class="card__title">브랜드 프로모션<span class="card__sub">노코드 웹사이트 제작</span></p>
+      <p class="card__meta"><span>아임웹</span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="video">
-    <div class="card__media"><span class="card__ph">Video</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media">
+      <div class="card__img"><span class="card__ph">Video</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 05<span>— 영상 편집</span></p>
+      <p class="card__title">Project 05<span class="card__sub">영상 편집 · 2025</span></p>
+      <p class="card__meta"><span></span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="brand">
-    <div class="card__media"><span class="card__ph">Brand</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media card__media--double">
+      <div class="card__img"><span class="card__ph">Brand</span></div>
+      <div class="card__img"><span class="card__ph">Brand</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 06<span>— 로고 / BI</span></p>
+      <p class="card__title">Project 06<span class="card__sub">로고 · BI · 2025</span></p>
+      <p class="card__meta"><span></span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="visual">
-    <div class="card__media"><span class="card__ph">Visual</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media">
+      <div class="card__img"><span class="card__ph">Visual</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 07<span>— 상세페이지 디자인</span></p>
+      <p class="card__title">Project 07<span class="card__sub">상세페이지 디자인 · 2025</span></p>
+      <p class="card__meta"><span>Client</span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="web">
-    <div class="card__media"><span class="card__ph">Web</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media card__media--double">
+      <div class="card__img"><span class="card__ph">Web</span></div>
+      <div class="card__img"><span class="card__ph">Web</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 08<span>— 정적 사이트 / Vercel</span></p>
+      <p class="card__title">Project 08<span class="card__sub">정적 사이트 · 2025</span></p>
+      <p class="card__meta"><span>Vercel</span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="video">
-    <div class="card__media"><span class="card__ph">Video</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media">
+      <div class="card__img"><span class="card__ph">Video</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 09<span>— 숏폼 영상</span></p>
+      <p class="card__title">Project 09<span class="card__sub">숏폼 영상 · 2025</span></p>
+      <p class="card__meta"><span>Client</span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="web">
-    <div class="card__media"><span class="card__ph">Web</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media card__media--double">
+      <div class="card__img"><span class="card__ph">Web</span></div>
+      <div class="card__img"><span class="card__ph">Web</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 10<span>— 클라이언트 웹 빌드</span></p>
+      <p class="card__title">Project 10<span class="card__sub">클라이언트 웹 빌드 · 2025</span></p>
+      <p class="card__meta"><span>워드프레스</span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="brand">
-    <div class="card__media"><span class="card__ph">Brand</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media">
+      <div class="card__img"><span class="card__ph">Brand</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 11<span>— 패키지 / 인쇄</span></p>
+      <p class="card__title">Project 11<span class="card__sub">패키지 · 인쇄 · 2025</span></p>
+      <p class="card__meta"><span>Client</span></p>
     </div>
   </a>
 
   <a class="card" href="#" data-cat="visual">
-    <div class="card__media"><span class="card__ph">Visual</span></div>
-    <span class="card__veil"></span>
+    <div class="card__media">
+      <div class="card__img"><span class="card__ph">Visual</span></div>
+    </div>
     <div class="card__cap">
-      <p class="card__title">Project 12<span>— 비주얼 디렉팅</span></p>
+      <p class="card__title">Project 12<span class="card__sub">비주얼 디렉팅 · 2025</span></p>
+      <p class="card__meta"><span>Client</span></p>
     </div>
   </a>
 
