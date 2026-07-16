@@ -1,6 +1,26 @@
 /* =========================================================
    ONT — design
    Obvious & Transparent / Only Necessary Things
+
+   [목차 — 페이지 흐름 순서]
+   1. Design Tokens (변수)
+   2. Base (리셋·공통 텍스트)
+   3. Header
+   4. Intro / Hero
+   5. Home — Filter
+   6. Home — Portfolio Grid (card)
+   7. About — Sections / Services / Approach / CTA
+   8. Contact — Form
+   9. Buttons (공통 버튼)
+   10. Footer
+   11. Background — 오브제 (.ont-bg .obj)
+   12. Effects — Droplet lens / Page loader
+   13. Cursor (꽃 커서)
+   14. Motion preference
+   ========================================================= */
+
+/* =========================================================
+   1. Design Tokens
    ========================================================= */
 :root{
   --paper:#ffffff;
@@ -21,10 +41,18 @@
   --maxw:none;
   --gut:clamp(14px, 1.4vw, 24px);
   --ease:cubic-bezier(.22,.61,.36,1);
+
+  /* 배경 오브제 */
+  --obj-opacity:.45;
+  --obj-scale:1;
 }
 
+/* =========================================================
+   2. Base
+   ========================================================= */
 *{box-sizing:border-box;}
 html{-webkit-text-size-adjust:100%;}
+html,body{overflow-x:clip;}          /* 가로 스크롤 안전망 */
 body{
   margin:0;
   background:var(--paper);
@@ -39,8 +67,28 @@ a{color:inherit;text-decoration:none;}
 img{display:block;width:100%;height:100%;object-fit:cover;}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
+/* 서브페이지 상단 라벨 */
+.eyebrow{
+  font-family:"Raleway",sans-serif;font-weight:500;
+  font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mute);margin:0 0 18px;
+}
+/* 리드 문단 (About 등) */
+.lead{
+  font-size:clamp(16px,1.5vw,19px);line-height:1.75;
+  color:var(--ink);font-weight:400;max-width:54ch;margin:0;
+  text-indent:5px;
+}
+/* 라벨 안내문 */
+.label-note{
+  display:block;
+  font-size:15px;color:var(--mute);font-weight:400;
+  letter-spacing:0;margin-top:4px;
+}
+.label-note a{color:var(--accent);}
+
 /* =========================================================
-   Header
+   3. Header
    ========================================================= */
 .header{
   position:sticky;top:0;z-index:50;
@@ -71,7 +119,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 
 /* =========================================================
-   Intro / Hero strip
+   4. Intro / Hero
    ========================================================= */
 .intro{
   max-width:var(--maxw);margin:0 auto;
@@ -91,19 +139,6 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   margin:0;color:var(--mute);font-size:clamp(13px,1.2vw,15px);
   letter-spacing:.01em;max-width:46ch;
 }
-
-/* 서브페이지 상단 라벨 */
-.eyebrow{
-  font-family:"Raleway",sans-serif;font-weight:500;
-  font-size:13px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--mute);margin:0 0 18px;
-}
-/* 리드 문단 (About 등) */
-.lead{
-  font-size:clamp(16px,1.5vw,19px);line-height:1.75;
-  color:var(--ink);font-weight:400;max-width:54ch;margin:0;
-  text-indent:5px;
-}
 /* Works intro — 시그니처 서브라인 */
 .intro p.intro__lead{
   font-family:var(--body);font-weight:500;
@@ -119,7 +154,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 
 /* =========================================================
-   Filter
+   5. Home — Filter
    ========================================================= */
 .filterbar{
   padding:0 clamp(20px,3vw,48px) clamp(18px,2.2vw,30px);
@@ -128,7 +163,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 .filters{display:flex;gap:clamp(16px,2vw,30px);flex-wrap:wrap;list-style:none;margin:0;padding:0;}
 .filters button{
-    font-family:"Quicksand",sans-serif;font-weight:500;font-size:15px;letter-spacing:.05em;
+  font-family:"Quicksand",sans-serif;font-weight:500;font-size:15px;letter-spacing:.05em;
   text-transform:uppercase;color:var(--mute);
   background:none;border:0;padding:4px 0;cursor:pointer;
   transition:color .2s var(--ease);position:relative;
@@ -140,17 +175,18 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 
 /* =========================================================
-   Portfolio grid — 레퍼런스 스타일
+   6. Home — Portfolio Grid
    · 이미지 1장(세로 10:13) 또는 8:5 두 장 스택(간격 포함 = 10:13)
-   · 캡션은 이미지 아래 상시 노출 (좌: 제목/설명, 우: on/with 메타)
+   · 캡션은 이미지 아래 상시 노출 (좌: 제목/설명, 우: 메타)
    · 카드 전체가 <a> — 두 장 사이 간격도 클릭 영역에 포함
    ========================================================= */
 .grid{
-  width:100%;margin:10px;
-  padding:0 clamp(20px,3vw,48px) clamp(40px,5vw,72px);   /* 위 텍스트와 같은 양옆 여백 */
+  width:100%;
+  margin:10px 0 0;                   /* ← 좌우 margin 제거 (가로스크롤 원인이었음) */
+  padding:0 clamp(20px,3vw,48px) clamp(40px,5vw,72px);
   display:grid;
-  column-gap:clamp(16px,2vw,28px);                        /* 카드 좌우 간격 */
-  row-gap:clamp(44px,4.5vw,72px);                         /* 캡션 포함 세로 간격은 넉넉히 */
+  column-gap:clamp(16px,2vw,28px);
+  row-gap:clamp(44px,4.5vw,72px);
   grid-template-columns:repeat(4,1fr);
 }
 @media(max-width:1400px){.grid{grid-template-columns:repeat(3,1fr);}}
@@ -163,10 +199,9 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   animation:rise .6s var(--ease) forwards;
 }
 .card.is-hidden{display:none;}
+@keyframes rise{to{opacity:1;transform:none;}}
 
-/* ── 미디어 영역 ─────────────────────────────
-   단일이든 2단이든 전체 비율은 10:13으로 통일 → 줄맞춤 유지
-   2단(card__media--double)은 내부를 반씩 나눔 → 각각 약 8:5  */
+/* ── 미디어 영역 ── */
 .card__media{
   position:relative;
   aspect-ratio:10/13;
@@ -199,10 +234,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 /* 실제 이미지가 들어오면 회색 플레이스홀더 라벨 자동 숨김 */
 .card__img:has(img) .card__ph{display:none;}
 
-/* (구) 호버 베일 — 제거됨. 마크업에 남아 있어도 무해하도록 숨김 처리 */
-.card__veil{display:none;}
-
-/* ── 캡션 — 이미지 아래 상시 노출 ── */
+/* ── 캡션 ── */
 .card__cap{
   display:flex;align-items:flex-start;justify-content:space-between;
   gap:clamp(24px,3vw,48px);padding-top:4px;
@@ -224,17 +256,9 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-family:"EB Garamond",serif;font-style:italic;font-weight:400;
   color:var(--mute);margin-right:3px;font-size:14px;
 }
-.card__cat{display:none;}
-
-@media(max-width:680px){
-  .card__title{font-size:13px;}
-  .card__sub{font-size:13px;}
-}
-
-@keyframes rise{to{opacity:1;transform:none;}}
 
 /* =========================================================
-   Sections (About / Contact)
+   7. About — Sections / Services / Approach / CTA
    ========================================================= */
 .section{
   padding:clamp(40px,6vw,80px) clamp(20px,3vw,48px);
@@ -246,33 +270,8 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   margin:0 0 clamp(26px,3.4vw,44px);
 }
 
-/* =========================================================
-   Services  (About — What We Do 에서 사용)
-   ========================================================= */
-/* 개별 블록엔 위 선만 */
+/* ── Services (What We Do) ── */
 .service{border-top:1px solid var(--ink);padding-top:18px;}
-.about-do .service{
-  padding-bottom:clamp(68px,4vw,88px);
-}
-
-/* 컨테이너: 데스크톱 2열*/
-.about-do .services{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  row-gap:0;
-  column-gap:clamp(28px,3vw,48px);
-}
-/* 마지막 줄(03·04)만 아래 선 → 좌우로 나뉜 선 */
-.about-do .service:nth-last-child(-n+2){
-  border-bottom:1px solid var(--ink);
-}
-
-/* 모바일(1열)에선 겹치지않게 */
-@media(max-width:560px){
-  .about-do .service:nth-last-child(-n+2){border-bottom:0;}
-  .about-do .service:last-child{border-bottom:1px solid var(--ink);}
-}
-
 .service__no{
   font-family:var(--body);font-size:13px;letter-spacing:.12em;font-weight:600;
   color:var(--accent);margin:0 0 12px;
@@ -282,36 +281,52 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-style:normal;color:var(--mute);font-weight:400;font-size:13px;margin-left:8px;letter-spacing:.04em;
 }
 .service__desc{
-  font-size:14px;line-height:1.7;color:var(--mute);margin:0;max-width:40ch;}
+  font-size:14px;line-height:1.7;color:var(--mute);margin:0;max-width:40ch;
+}
 
-/* About — What We Do (full width, large, like the work grid) */
 .about-do{border-top:0;padding-top:clamp(48px,8vw,112px);}
 .about-do__title{
   font-family:var(--body);font-weight:600;
   font-size:clamp(30px,5vw,60px);letter-spacing:-.03em;line-height:1.04;
   margin:0 0 clamp(36px,5vw,64px);
 }
+.about-do .services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  row-gap:0;
+  column-gap:clamp(28px,3vw,48px);
+}
+.about-do .service{padding-bottom:clamp(68px,4vw,88px);}
+/* 마지막 줄(03·04)만 아래 선 → 좌우로 나뉜 선 */
+.about-do .service:nth-last-child(-n+2){
+  border-bottom:1px solid var(--ink);
+}
 .about-do .service__name{font-size:clamp(18px,1.6vw,22px);}
 .about-do .service__desc{font-size:15px;max-width:none;}
 
-/* 모바일: 1열로 전환 */
+/* 모바일: 1열 전환 + 선 겹침 방지 */
 @media(max-width:560px){
   .about-do .services{grid-template-columns:1fr;}
+  .about-do .service:nth-last-child(-n+2){border-bottom:0;}
+  .about-do .service:last-child{border-bottom:1px solid var(--ink);}
 }
 
-/* Approach — 브랜드 한 줄 (크지 않게) */
+/* ── Approach ── */
+.approach{padding-top:clamp(28px,4vw,56px);padding-bottom:clamp(18px,2.5vw,32px);}
+.approach .lead{max-width:820px;}
 .approach-line{
   font-size:clamp(18px,2vw,24px);font-weight:600;letter-spacing:-.02em;
   margin:0 0 18px;line-height:1.3;
 }
 .approach-line .amp{font-family:"Fraunces",serif;font-weight:500;padding:0 .04em;}
-.approach-lead {
+.approach-lead{
   font-size:clamp(16px,1.5vw,19px);line-height:1.75;
   color:var(--ink);font-weight:400;max-width:54ch;margin:0;
 }
-/* CTA band */
+
+/* ── CTA band ── */
 .cta{
-  padding:clamp(56px,8vw,120px) clamp(20px,3vw,48px);
+  padding:clamp(16px,2.5vw,36px) clamp(20px,3vw,48px) clamp(56px,8vw,120px);
 }
 .cta h2{
   font-family:var(--body);font-weight:600;
@@ -320,29 +335,57 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 .cta h2 .amp{font-family:"Fraunces",serif;font-weight:500;padding:0 .04em;}
 
-.btn{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--body);font-size:15px;font-weight:500;
-  color:var(--paper);background:var(--accent);
-  padding:14px 26px;cursor:pointer;border:1px solid var(--accent);
-  transition:opacity .2s var(--ease),background .2s var(--ease),color .2s var(--ease);
-}
-.btn:hover{opacity:.82;}
-.btn--ghost{color:var(--ink);background:transparent;}
-.btn--ghost:hover{color:var(--paper);background:var(--ink);opacity:1;}
-
 /* =========================================================
-   Contact — 폼만 가운데, 화면 80% (최대 900px)
+   8. Contact — 좌(소개) / 우(폼) 2단 레이아웃
    ========================================================= */
 .contact{
-  padding:clamp(20px,3vw,40px) clamp(20px,3vw,48px) clamp(60px,8vw,120px);
-  display:flex;justify-content:center;
+  padding:clamp(40px,7vw,84px) clamp(20px,3vw,48px) clamp(60px,8vw,120px);
 }
+.contact__grid{
+  max-width:none;                                 /* 인덱스처럼 페이지 좌측에서 시작 */
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);
+  gap:clamp(28px,4vw,72px);
+  align-items:start;
+}
+
+/* 좌측: 소개 — 로고 아래 좌상단, 데스크탑 스티키 */
+.contact__intro{
+  position:sticky;top:clamp(24px,5vw,56px);
+}
+.contact__intro h1{
+  font-family:var(--body);font-weight:600;
+  font-size:clamp(28px,4.4vw,56px);line-height:1.1;    /* 인덱스 h1과 동일 스케일 */
+  letter-spacing:-.03em;margin:0 0 clamp(18px,2.5vw,30px);
+}
+.contact__intro h1 .solve{
+  font-family:"EB Garamond","Gowun Batang",serif;
+  font-style:italic;font-weight:500;color:var(--accent);
+  font-size:1.16em;line-height:1;padding:0 .04em;
+}
+.contact__intro .lead{max-width:40ch;}
+
+/* 우측: 폼 — 크게 */
+.contact__grid .form{width:100%;max-width:1000px;}
 .form{
-  width:80%;max-width:900px;
-  display:flex;flex-direction:column;gap:22px;
+  width:80%;max-width:900px;margin:0 auto;   /* (구 단일컬럼 페이지 호환) */
+  display:flex;flex-direction:column;gap:clamp(24px,2.4vw,34px);
 }
-.form__row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.contact__grid .form{margin:0;}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,2.4vw,36px);}
+
+.contact__grid .field label{font-size:clamp(16px,1.3vw,18px);}
+.contact__grid .field input,
+.contact__grid .field select,
+.contact__grid .field textarea{font-size:clamp(15px,1.2vw,17px);padding:13px 0;}
+.contact__grid .field textarea{min-height:170px;}
+.contact__grid .agree{font-size:clamp(15px,1.2vw,16px);}
+
+/* 모바일/태블릿: 세로 스택 · 스티키 해제 */
+@media(max-width:880px){
+  .contact__grid{grid-template-columns:1fr;gap:clamp(32px,7vw,48px);}
+  .contact__intro{position:static;top:auto;}
+}
 @media(max-width:560px){
   .form{width:100%;}
   .form__row{grid-template-columns:1fr;}
@@ -373,166 +416,24 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .agree{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--mute);cursor:pointer;}
 .agree input{margin-top:2px;accent-color:var(--ink);}
 
-.form .btn{align-self:flex-start;margin-top:4px;}
-
-/* ── 폼 안에서는 꽃 커서 차단 (헷갈림 방지) ── */
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="tel"],
-.form textarea{
-  cursor: text;            /* 글자 입력칸 → I빔 */
-}
-.form label,
-.form .field{
-  cursor: auto;            /* 라벨·필드 영역 → 기본 화살표 */
-}
-/* select·체크박스는 이미 pointer 유지 (그대로 둠) */
-
-/* ── 제출 버튼에서만 꽃 커서 ── */
-.form .btn{
-  cursor: url('../images/pointer.png') 16 16, pointer;
-}
-
 /* =========================================================
-   Footer
+   9. Buttons
    ========================================================= */
-.footer__inner{
-  max-width:var(--maxw);margin:0 auto;
-  padding:clamp(30px,5vw,56px) clamp(20px,3vw,48px);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  flex-wrap:wrap;
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--body);font-size:15px;font-weight:500;
+  color:var(--paper);background:var(--accent);
+  padding:14px 26px;cursor:pointer;border:1px solid var(--accent);
+  transition:opacity .2s var(--ease),background .2s var(--ease),color .2s var(--ease);
 }
-.footer__brand{font-family:var(--body);font-weight:600;font-size:20px;letter-spacing:-.03em;}
-.footer__brand small{display:block;font-family:var(--body);font-weight:400;font-size:12px;color:var(--mute);letter-spacing:.06em;margin-top:6px;}
-.footer__links{display:flex;gap:18px;font-family:var(--body);font-size:13px;color:var(--mute);}
-.footer__links a:hover{color:var(--accent);}
-.footer__copy{width:auto;font-size:12px;color:var(--mute);letter-spacing:.03em;margin-top:0;}
-
-/* =========================================================
-   Motion preference — 로더는 예외적으로 항상 회전
-   ========================================================= */
-@media(prefers-reduced-motion:reduce){
-  .page-loader__flower{animation:page-loader-spin 2.2s linear infinite !important;}
-}
-
-/* =========================================================
-   Ambient background — pastel flow (blob)
-   ========================================================= */
-.ont-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:var(--paper);}
-.ont-bg::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.45);} /* 가독성 보호 베일 */
-
-.ont-bg .blob{position:absolute;border-radius:50%;filter:blur(64px);opacity:.30;will-change:transform;}
-.ont-bg .b1{width:54vmax;height:54vmax;left:-4vmax;bottom:-8vmax;
-  background:radial-gradient(circle at 45% 45%, rgba(255,201,107,.95), rgba(255,201,107,0) 66%);
-  animation:drift1 34s ease-in-out infinite alternate;}
-.ont-bg .b2{width:1vmax;height:1vmax;right:-4vmax;top:-4vmax;
-  background:radial-gradient(circle at 50% 50%, rgba(199,176,255,.92), rgba(199,176,255,0) 66%);
-  animation:drift2 42s ease-in-out infinite alternate;}
-.ont-bg .b3{width:46vmax;height:46vmax;right:-2vmax;bottom:-8vmax;
-  background:radial-gradient(circle at 50% 50%, rgba(255,182,198,.85), rgba(255,182,198,0) 68%);
-  animation:drift3 38s ease-in-out infinite alternate;}
-.ont-bg .b4{width:38vmax;height:38vmax;left:26vw;top:-10vmax;
-  background:radial-gradient(circle at 50% 50%, rgba(255,214,170,.70), rgba(255,214,170,0) 70%);
-  animation:drift1 46s ease-in-out infinite alternate;}
-
-@keyframes drift1{to{transform:translate(6vmax,-4vmax) scale(1.08);}}
-@keyframes drift2{to{transform:translate(-5vmax,5vmax) scale(1.06);}}
-@keyframes drift3{to{transform:translate(-4vmax,-5vmax) scale(1.10);}}
-
-@media(prefers-reduced-motion:reduce){
-  .ont-bg .blob{animation:none!important;}
-}
-
-/* =========================================================
-   Droplet lens — 마우스 따라다니는 유리 물방울
-   ========================================================= */
-.droplet{
-  position:fixed;top:0;left:0;z-index:60;pointer-events:none;
-  width:84px;height:84px;border-radius:50%;
-  background:radial-gradient(circle at 34% 30%, rgba(255,255,255,.55), rgba(255,255,255,.06) 60%, rgba(255,255,255,0) 72%);
-  box-shadow:inset 0 2px 16px rgba(255,255,255,.6), inset 0 -8px 20px rgba(180,170,210,.22), 0 10px 34px rgba(150,140,180,.18);
-  border:1px solid rgba(255,255,255,.5);
-  -webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px);
-  opacity:0;transition:opacity .3s ease;
-}
-.droplet.is-on{opacity:1;}
-
-.lens-word{display:inline-block;white-space:nowrap;}
-.lens-ch{display:inline-block;will-change:transform;transition:color .2s ease;}
-
-@media(prefers-reduced-motion:reduce){
-  .droplet{display:none;}
-}
-@media (hover: none) {
-  .droplet { display: none !important; }
-}
-
-/* =========================================================
-   Home (메인 랜딩) — hero
-   ========================================================= */
-.home{
-  min-height:calc(100svh - 78px);
-  display:flex;align-items:center;
-  padding:clamp(28px,4vh,64px) clamp(22px,5vw,80px) clamp(40px,6vh,80px);
-}
-.home__inner{width:100%;max-width:none;}
-.home__text{max-width:none;}
-
-.home__mark{
-  position:absolute;width:clamp(64px,3vw,96px);height:auto;
-  left:-.28em;top:-.01em;transform:rotate(-12deg);transform-origin:center;
-  z-index:-1;
-}
-
-.home__title{
-  position:relative;
-  font-family:"EB Garamond","Gowun Batang",serif;font-weight:400;font-style:normal;
-  font-size:clamp(40px,6.5vw,96px);line-height:1.06;letter-spacing:-.015em;
-  margin:0 0 clamp(24px,2.6vw,34px);padding-top:.3em;color:var(--ink);
-}
-.home__title .accent{
-  color:var(--accent);font-style:italic;font-weight:500;padding:0 .04em;
-}
-.home__title .accent-s{
-  font-size:1.28em;line-height:0;
-}
-
-.home__sub{
-  font-size:clamp(16px,1.5vw,21px);line-height:1.7;color:var(--ink);
-  max-width:65ch;margin:0 0 clamp(28px,3vw,40px);
-}
-.home__sub-lead{
-  display:block;color:#3d3d3d;font-weight:600;
-  margin-bottom:8px;letter-spacing:-.01em;
-}
+.btn:hover{opacity:.82;}
+.btn--ghost{color:var(--ink);background:transparent;}
+.btn--ghost:hover{color:var(--paper);background:var(--ink);opacity:1;}
 .btn--accent{color:var(--paper);background:var(--accent);border-color:var(--accent);}
 .btn--accent:hover{opacity:.88;}
+.form .btn{align-self:flex-start;margin-top:4px;}
 
-@media (max-width:760px){
-  .home{min-height:calc(100svh - 64px);align-items:flex-start;padding-top:200px;padding-bottom:48px;}
-  .home__title{font-size:clamp(38px,9vw,60px);}
-  .home__mark{
-    width: 25px;
-    top: 10px;
-    left: -5px;
-  }
-  .home__sub{max-width:100%;}
-  .footer__inner{flex-direction:column-reverse;align-items:center;text-align:center;gap:14px;}
-}
-
-/* =========================================================
-   About — Approach 폭 넓게 + CTA 간격 축소
-   ========================================================= */
-.approach{padding-top:clamp(28px,4vw,56px);padding-bottom:clamp(18px,2.5vw,32px);}
-.approach .lead{max-width:820px;}
-.cta{padding-top:clamp(16px,2.5vw,36px);}
-
-/* =========================================================
-   Highlight button — 텍스트 하단 절반 하이라이트 (이동 버튼)
-   ========================================================= */
+/* Highlight button — 텍스트 하단 하이라이트 (이동 버튼) */
 .btn-hl{
   display:inline-flex;align-items:center;gap:12px;
   font-family:var(--body);font-size:clamp(16px,1.6vw,19px);font-weight:600;
@@ -559,35 +460,36 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 .btn-hl__arrow{display:inline-block;}
 
-/* 라벨 안내문 */
-.label-note{
-  display:block;
-  font-size:15px;color:var(--mute);font-weight:400;
-  letter-spacing:0;margin-top:4px;
+/* =========================================================
+   10. Footer
+   ========================================================= */
+.footer__inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:clamp(30px,5vw,56px) clamp(20px,3vw,48px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
 }
-.label-note a{color:var(--accent);}
-
-/* 클릭 가능한 요소 위에서만 꽃 커서 */
-a, button, label, .btn-hl__txt,
-.case__nav-grid,
-.gallery__slide img,
-.case__hero img{
-  cursor: url('../images/pointer.png') 16 16, pointer;
-}
-.filters a, .filters button{
-  cursor: url('../images/pointer.png') 6 6, pointer;
+.footer__brand{font-family:var(--body);font-weight:600;font-size:20px;letter-spacing:-.03em;}
+.footer__brand small{display:block;font-family:var(--body);font-weight:400;font-size:12px;color:var(--mute);letter-spacing:.06em;margin-top:6px;}
+.footer__links{display:flex;gap:18px;font-family:var(--body);font-size:13px;color:var(--mute);}
+.footer__links a:hover{color:var(--accent);}
+.footer__copy{width:auto;font-size:12px;color:var(--mute);letter-spacing:.03em;margin-top:0;}
+@media (max-width:760px){
+  .footer__inner{flex-direction:column-reverse;align-items:center;text-align:center;gap:14px;}
 }
 
 /* =========================================================
-   배경: 추상 도형 오브제 (JS .obj 배열이 그림)
+   11. Background — 추상 도형 오브제 (JS가 .obj 를 그림)
    ========================================================= */
-.ont-bg{background:#ffffff;}
-.ont-bg::after{background:rgba(255,255,255,.55);}   /* 가독성 베일 */
-
-:root{
-  --obj-opacity:.45;   /* 오브제 농도 */
-  --obj-scale:1;
+.ont-bg{
+  position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:var(--paper);
 }
+.ont-bg::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.55);} /* 가독성 베일 */
+
 .ont-bg .obj{
   position:absolute;
   width:calc(var(--w) * var(--obj-scale));
@@ -608,13 +510,29 @@ a, button, label, .btn-hl__txt,
   :root{--obj-scale:.5;}
   .ont-bg .m-hide{display:none;}
 }
-@media(prefers-reduced-motion:reduce){
-  .ont-bg .obj{animation:none;}
-}
 
 /* =========================================================
-   Page transition — flower loader
+   12. Effects — Droplet lens / Page loader
    ========================================================= */
+.droplet{
+  position:fixed;top:0;left:0;z-index:60;pointer-events:none;
+  width:84px;height:84px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%, rgba(255,255,255,.55), rgba(255,255,255,.06) 60%, rgba(255,255,255,0) 72%);
+  box-shadow:inset 0 2px 16px rgba(255,255,255,.6), inset 0 -8px 20px rgba(180,170,210,.22), 0 10px 34px rgba(150,140,180,.18);
+  border:1px solid rgba(255,255,255,.5);
+  -webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px);
+  opacity:0;transition:opacity .3s ease;
+}
+.droplet.is-on{opacity:1;}
+
+.lens-word{display:inline-block;white-space:nowrap;}
+.lens-ch{display:inline-block;will-change:transform;transition:color .2s ease;}
+
+@media (hover: none){
+  .droplet{display:none !important;}
+}
+
+/* Page transition — flower loader */
 .page-loader{
   position:fixed;inset:0;z-index:200;
   background:var(--paper);
@@ -629,6 +547,36 @@ a, button, label, .btn-hl__txt,
   will-change:transform;
 }
 @keyframes page-loader-spin{to{transform:rotate(360deg);}}
+
+/* =========================================================
+   13. Cursor — 꽃 커서 (클릭 가능한 요소 위에서만)
+   ========================================================= */
+a, button, label, .btn-hl__txt,
+.case__nav-grid,
+.gallery__slide img,
+.case__hero img{
+  cursor: url('../images/pointer.png') 16 16, pointer;
+}
+.filters a, .filters button{
+  cursor: url('../images/pointer.png') 6 6, pointer;
+}
+.form .btn{
+  cursor: url('../images/pointer.png') 16 16, pointer;   /* 제출 버튼만 꽃 커서 */
+}
+/* 폼 안에서는 꽃 커서 차단 (헷갈림 방지) */
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form textarea{cursor:text;}
+.form label,
+.form .field{cursor:auto;}
+
+/* =========================================================
+   14. Motion preference
+   ========================================================= */
 @media(prefers-reduced-motion:reduce){
-  .page-loader__flower{animation:none;}
+  .ont-bg .obj{animation:none;}
+  .droplet{display:none;}
+  /* 로더는 예외적으로 항상 회전 */
+  .page-loader__flower{animation:page-loader-spin 2.2s linear infinite !important;}
 }
