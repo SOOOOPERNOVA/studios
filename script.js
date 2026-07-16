@@ -1,8 +1,4 @@
 /* ============================================================
-   ONT — script  (배경은 HTML의 .ont-bg가 담당 / JS는 필터 + 물방울)
-   ============================================================ */
-
-/* ============================================================
    portfolio filter (vanilla JS, no dependencies)
    ============================================================ */
 (function () {
@@ -139,47 +135,6 @@
   } catch (err) { /* 글자 확대만 실패, 물방울은 정상 */ }
 })();
 
-/* ============================================================
-   배경 오브제 — .ont-bg 안에 추상 도형 SVG를 깔아줌
-   ============================================================ */
-(function () {
-  var bg = document.querySelector('.ont-bg');
-  if (!bg) return;
-
-  // 심볼 정의
-  bg.insertAdjacentHTML('beforeend',
-    '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>' +
-    '<symbol id="o0" viewBox="0 0 100 100"><path d="M50,15 C65,15 75,25 70,40 C68,46 62,50 62,50 C62,50 68,54 70,60 C75,75 65,85 50,85 C35,85 25,75 30,60 C32,54 38,50 38,50 C38,50 32,46 30,40 C25,25 35,15 50,15 Z" fill="#F9B752"/></symbol>' +
-    '<symbol id="o1" viewBox="0 0 100 100"><path d="M25,25 Q50,5 75,25 Q85,35 75,50 L55,50 L75,75 Q65,95 40,85 Q20,75 25,50 L45,50 Z" fill="#F24E31"/></symbol>' +
-    '<symbol id="o2" viewBox="0 0 100 100"><g stroke="#C39BD3" stroke-width="12" stroke-linecap="round"><line x1="50" y1="20" x2="50" y2="80"/><line x1="20" y1="50" x2="80" y2="50"/><line x1="29" y1="29" x2="71" y2="71"/><line x1="29" y1="71" x2="71" y2="29"/></g></symbol>' +
-    '<symbol id="o3" viewBox="0 0 100 100"><path d="M30,35 C30,15 75,20 75,45 C75,70 50,85 30,65 C15,50 30,45 30,35 Z" fill="#F9B752"/></symbol>' +
-    '<symbol id="o4" viewBox="0 0 100 100"><path d="M50,20 C72,18 82,38 78,58 C74,78 52,82 32,72 C12,62 28,22 50,20 Z" fill="#B7D9EA"/></symbol>' +
-    '<symbol id="o5" viewBox="0 0 100 100"><g fill="#FBC937"><circle cx="50" cy="20" r="14"/><circle cx="50" cy="40" r="14"/><circle cx="50" cy="60" r="14"/><circle cx="50" cy="80" r="14"/></g></symbol>' +
-    '<symbol id="o6" viewBox="0 0 100 100"><g fill="#F16946"><circle cx="50" cy="25" r="16"/><circle cx="74" cy="42" r="16"/><circle cx="65" cy="70" r="16"/><circle cx="35" cy="70" r="16"/><circle cx="26" cy="42" r="16"/><circle cx="50" cy="50" r="18"/></g></symbol>' +
-    '<symbol id="o7" viewBox="0 0 300 300"><path d="M 35,270 C 100,280 110,210 70,180 C 30,150 170,170 150,100 C 130,30 250,70 260,30" fill="none" stroke="#F39DC4" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/></symbol>' +
-     '<symbol id="o8" viewBox="0 0 100 100"><path d="M 10 70 L 90 70 C 90 35, 63.3 35, 63.3 70 C 63.3 35, 36.6 35, 36.6 70 C 36.6 35, 10 35, 10 70 Z" fill="#59B96E"/></symbol>' +
-    '</defs></svg>');
-
-  // [심볼, left%, top%, 크기px, 회전°, 부유Y, 부유회전, 주기s, 딜레이s, 모바일숨김]
-  var OBJ = [
-    ['o7', -3,  -5, 290, 250,  -8,  3, 13,  0, false], // pink
-    ['o2', 60, 21, 140,  0,  10,  8, 14, .3, true ], // aesterisk
-    ['o0', 90,  6, 140,  0,  -8,  4, 13, .9, false], // yellow layer2
-    ['o5', 32, 40, 260,  0,  -9,  3, 12, .7, true ], // yellow layer4
-    ['o1', 19, 80, 130, -8,  -9,  5, 12, .4, true ], // red
-    ['o4', -5, 82, 210,  0,  10, -4, 14, .4, false], // skyblue
-    ['o8', 60, 62, 560,  0,  -8,  3, 13, .6, false]  // green
-  ];
-  OBJ.forEach(function (o) {
-    var d = document.createElement('div');
-    d.className = 'obj' + (o[9] ? ' m-hide' : '');
-    d.style.cssText =
-      'left:' + o[1] + '%;top:' + o[2] + '%;--w:' + o[3] + 'px;--r:' + o[4] +
-      'deg;--dy:' + o[5] + 'px;--dr:' + o[6] + 'deg;--dur:' + o[7] + 's;--delay:' + o[8] + 's';
-    d.innerHTML = '<svg><use href="#' + o[0] + '"/></svg>';
-    bg.appendChild(d);
-  });
-})();
 
 (function(){
   var loader = document.createElement('div');

@@ -485,35 +485,17 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 
 /* =========================================================
-   11. Background — 추상 도형 오브제 (JS가 .obj 를 그림)
+   11. Background — 라인 오브제 (대표 사이트 톤)
    ========================================================= */
 .ont-bg{
   position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
   background:var(--paper);
 }
-.ont-bg::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.55);} /* 가독성 베일 */
-
-.ont-bg .obj{
-  position:absolute;
-  width:calc(var(--w) * var(--obj-scale));
-  aspect-ratio:1/1;
-  opacity:var(--obj-opacity);
-  transform-origin:center;
-  animation:drift var(--dur,12s) ease-in-out infinite alternate;
-  animation-delay:var(--delay,0s);
+.ont-bg::before{
+  content:"";position:absolute;inset:-25%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 640' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%231A1A1A' stroke-opacity='0.09' stroke-width='0.5' transform='rotate(18 400 320)'%3E%3Cellipse cx='400' cy='480' rx='260' ry='120'/%3E%3Cellipse cx='400' cy='320' rx='260' ry='120'/%3E%3Cellipse cx='400' cy='160' rx='260' ry='120'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:cover;
 }
-.ont-bg .obj svg{width:100%;height:100%;display:block;}
-
-@keyframes drift{
-  from{transform:translate(0,0) rotate(var(--r,0deg));}
-  to{transform:translate(var(--dx,0),var(--dy,-10px)) rotate(calc(var(--r,0deg) + var(--dr,4deg)));}
-}
-
-@media(max-width:680px){
-  :root{--obj-scale:.5;}
-  .ont-bg .m-hide{display:none;}
-}
-
 /* =========================================================
    12. Effects — Droplet lens / Page loader
    ========================================================= */
