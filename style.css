@@ -234,6 +234,10 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 /* 실제 이미지가 들어오면 회색 플레이스홀더 라벨 자동 숨김 */
 .card__img:has(img) .card__ph{display:none;}
 
+/* ── 호버 영상 미리보기 ── */
+.card__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.card__img:has(.card__vid) .card__ph{display:none;}
+
 /* ── 캡션 ── */
 .card__cap{
   display:flex;align-items:flex-start;justify-content:space-between;

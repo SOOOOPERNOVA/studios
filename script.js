@@ -31,6 +31,32 @@
 })();
 
 /* ============================================================
+   카드 호버 시 영상 미리보기 — 최대 3초, 1회 재생 후 첫 프레임 복귀
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(hover: none)').matches) return;
+  var PREVIEW_SEC = 5;
+
+  document.querySelectorAll('.card').forEach(function (card) {
+    var vid = card.querySelector('.card__vid');
+    if (!vid) return;
+
+    function stop() { vid.pause(); vid.currentTime = 0; }
+
+    vid.addEventListener('timeupdate', function () {
+      if (vid.currentTime >= PREVIEW_SEC) stop();
+    });
+    vid.addEventListener('ended', stop);
+
+    card.addEventListener('mouseenter', function () {
+      vid.currentTime = 0;
+      vid.play().catch(function(){});
+    });
+    card.addEventListener('mouseleave', stop);
+  });
+})();
+
+/* ============================================================
    Droplet lens — 마우스 따라다니는 물방울이 지나가면 글자가 확대·또렷
    모션 최소화 설정에서만 비활성. (터치기기는 mousemove가 없어 자연히 안 뜸)
    ============================================================ */
