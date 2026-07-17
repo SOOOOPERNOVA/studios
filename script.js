@@ -9,7 +9,8 @@
   function apply(filter) {
     var i = 0;
     cards.forEach(function (card) {
-      var match = (filter === 'all') || (card.getAttribute('data-cat') === filter);
+      var cats = (card.getAttribute('data-cat') || '').split(/\s+/);
+      var match = (filter === 'all') || cats.indexOf(filter) !== -1;
       card.classList.toggle('is-hidden', !match);
       if (match) {
         card.style.animation = 'none';
