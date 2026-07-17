@@ -166,9 +166,9 @@
 }
 .case__hero:has(img) .ph{display:none;}
 
-/* 영상 16:9 반응형 래퍼 */
-.case__video{position:relative;width:100%;aspect-ratio:16/9;}
-.case__video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+/* 유튜브 임베드 래퍼 (기본 16:9) */
+.case__yt{position:relative;width:100%;aspect-ratio:16/9;}
+.case__yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
 /* =========================================================
    8. Gallery
@@ -305,15 +305,15 @@
    채널톡 버튼(우하단) 위에 정렬. 일정 스크롤 후에만 표시
    ========================================================= */
 .to-top{
-  position:fixed;right:50px;bottom:165px;z-index:90;   /* 채널톡(≈60px+여백) 위 */
-  width:44px;height:44px;border:0;background:none;cursor:pointer;padding:0;
+  position:fixed;right:26px;bottom:104px;z-index:90;   /* 채널톡(≈60px+여백) 위 */
+  width:52px;height:52px;border:0;background:none;cursor:pointer;padding:0;
   display:flex;align-items:center;justify-content:center;
-  color:var(--mute);                                    /* SVG가 currentColor로 상속 */
+  color:var(--ink);                                    /* SVG가 currentColor로 상속 */
   opacity:0;transform:translateY(8px);pointer-events:none;
   transition:opacity .25s var(--ease), transform .25s var(--ease),
              color .2s var(--ease);
 }
-.to-top svg{width:30px;height:30px;display:block;}
+.to-top svg{width:26px;height:32px;display:block;}
 .to-top.is-show{opacity:1;transform:none;pointer-events:auto;}
 .to-top:hover{color:var(--accent);}
 @media(max-width:880px){
@@ -325,40 +325,39 @@
 
 /* =========================================================
    12. Shorts — 세로 숏폼 여러 개 (2열 + 클릭 재생)
-   사용: <div class="shorts">
-           <video class="shorts__item" src="a.mp4" poster="a.webp"
+   사용: <div class="case__cols">
+           <video class="case__mp4" src="a.mp4" poster="a.webp"
                   muted playsinline preload="metadata"></video>
            ...
          </div>
    ========================================================= */
-.shorts{
+.case__cols{
   display:grid;grid-template-columns:repeat(2,1fr);
   gap:clamp(14px,2vw,24px);
 }
-.shorts__item{
+.case__mp4{
   width:100%;aspect-ratio:9/16;object-fit:cover;display:block;
   background:linear-gradient(135deg,var(--tile),var(--tile2));
   cursor:pointer;
 }
 /* 재생 버튼 오버레이 — JS가 video를 래퍼로 감싸고 버튼을 얹음 */
-.shorts__wrap{position:relative;}
-.shorts__play{
+.case__mp4-wrap{position:relative;}
+.case__mp4-play{
   position:absolute;inset:0;margin:auto;width:56px;height:56px;
   border:0;border-radius:50%;cursor:pointer;
   background:rgba(20,18,22,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
   display:flex;align-items:center;justify-content:center;
   transition:background .2s var(--ease), opacity .2s var(--ease);
 }
-.shorts__play::before{                  /* ▶ */
+.case__mp4-play::before{                  /* ▶ */
   content:"";display:block;margin-left:4px;
   border-style:solid;border-width:10px 0 10px 16px;
   border-color:transparent transparent transparent #fff;
 }
-.shorts__play:hover{background:rgba(20,18,22,.75);}
-.shorts__wrap.is-playing .shorts__play{opacity:0;pointer-events:none;}
+.case__mp4-play:hover{background:rgba(20,18,22,.75);}
+.case__mp4-wrap.is-playing .case__mp4-play{opacity:0;pointer-events:none;}
 @media(max-width:560px){
-  .shorts{grid-template-columns:repeat(2,1fr);gap:10px;}
-  .shorts__play{width:44px;height:44px;}
-  .shorts__play::before{border-width:8px 0 8px 13px;}
+  .case__cols{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .case__mp4-play{width:44px;height:44px;}
+  .case__mp4-play::before{border-width:8px 0 8px 13px;}
 }
- 

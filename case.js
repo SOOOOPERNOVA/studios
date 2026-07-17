@@ -79,8 +79,8 @@
   btn.className = 'to-top';
   btn.setAttribute('aria-label', '맨 위로');
   btn.innerHTML =
-    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 30" fill="none" ' +
-    'stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="30" viewBox="0 0 24 30" fill="none" ' +
+    'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<line x1="12" y1="25" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>';
   document.body.appendChild(btn);
 
@@ -96,43 +96,41 @@
   });
 })();
 
- 
 /* ============================================================
    Shorts — 세로 숏폼 클릭 재생
    · 재생 버튼 클릭 → 재생 (소리 켬), 다시 클릭 → 일시정지
    · 한 번에 하나만 재생 (다른 영상 재생 시 기존 것 정지)
    ============================================================ */
 (function(){
-  var items = document.querySelectorAll('.shorts .shorts__item');
+  var items = document.querySelectorAll('.case__cols .case__mp4');
   if(!items.length) return;
   var playing = null;
- 
+
   items.forEach(function(v){
     // 래퍼 + 재생 버튼 생성
     var wrap = document.createElement('div');
-    wrap.className = 'shorts__wrap';
+    wrap.className = 'case__mp4-wrap';
     v.parentNode.insertBefore(wrap, v);
     wrap.appendChild(v);
     var btn = document.createElement('button');
-    btn.className = 'shorts__play';
+    btn.className = 'case__mp4-play';
     btn.setAttribute('aria-label', '재생');
     wrap.appendChild(btn);
- 
+
     function stop(){ v.pause(); wrap.classList.remove('is-playing'); if(playing===v) playing=null; }
     function start(){
       if(playing && playing!==v){                      // 다른 영상 정지
         playing.pause();
-        playing.closest('.shorts__wrap').classList.remove('is-playing');
+        playing.closest('.case__mp4-wrap').classList.remove('is-playing');
       }
       v.muted = false;                                  // 클릭 재생은 소리 켬
       v.play().catch(function(){ v.muted = true; v.play().catch(function(){}); });
       wrap.classList.add('is-playing');
       playing = v;
     }
- 
+
     btn.addEventListener('click', start);
     v.addEventListener('click', function(){ wrap.classList.contains('is-playing') ? stop() : start(); });
     v.addEventListener('ended', stop);
   });
 })();
- 
