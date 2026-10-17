@@ -3,14 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
     <title>파인치과 - 병원 홈페이지 샘플</title>
     <meta name="description" content="아프지 않게, 필요한 만큼만. ONT 오앤티가 기획·디자인한 치과 홈페이지 샘플입니다.">
     <!-- 링크 공유 미리보기 (카카오톡·SNS) -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ONT 오앤티">
     <meta property="og:title" content="파인치과 - 병원 홈페이지 샘플">
-    <meta property="og:description" content="오앤티가 기획·디자인한 치과 홈페이지 샘플입니다.">
+    <meta property="og:description" content="아프지 않게, 필요한 만큼만. ONT 오앤티가 기획·디자인한 치과 홈페이지 샘플입니다.">
     <meta property="og:url" content="https://studios.ont.co.kr/sample/clinic_dental/">
     <meta property="og:image" content="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&w=1200&h=630&q=80">
     <meta property="og:image:width" content="1200">
@@ -318,7 +317,7 @@ body {
             </span>
             <p class="text-sm sm:text-[15px] leading-[1.6]">
                 <b class="font-bold">본 페이지는 포트폴리오용 샘플 페이지입니다.</b>
-                <span class="font-medium">샘플은 메인 페이지만 제공되며, 실제 제작 시 PC·태블릿·모바일 반응형으로 구현됩니다.</span>
+                <span class="block sm:inline text-[12px] sm:text-[15px] leading-[1.5] mt-0.5 sm:mt-0 font-medium">샘플은 메인 페이지만 제공되며, 실제 제작 시 PC·태블릿·모바일 반응형으로 구현됩니다.</span>
             </p>
         </div>
         <button type="button" onclick="document.getElementById('sampleNotice').remove()" class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-[#A63A12] hover:bg-[#E5511E]/10 transition" aria-label="안내 닫기">
@@ -416,46 +415,45 @@ body {
             <!-- Swiper Background Slider -->
             <div class="swiper MainSwiper absolute inset-0 z-0 w-full h-full">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 (샘플 이미지 - 교체용) -->
-                    <div class="swiper-slide relative">
-                        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1920&q=80" alt="" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/60 to-transparent"></div>
-                    </div>
-
-                    <!-- Slide 2 -->
+                    <!-- Slide 1 -->
                     <div class="swiper-slide relative">
                         <img src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?auto=format&fit=crop&w=1920&q=80" alt="" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/60 to-transparent"></div>
+                    </div>
+                    <!-- Slide 2 (샘플 이미지 - 교체용) -->
+                    <div class="swiper-slide relative">
+                        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1920&q=80" alt="" class="absolute inset-0 w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/60 to-transparent"></div>
                     </div>
                 </div>
             </div>
 
             <!-- Main Content Overlay -->
-            <div class="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-40 lg:pt-48 pb-16 w-full my-auto">
-                <div class="max-w-2xl space-y-6">
+            <div class="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 lg:pt-48 pb-12 sm:pb-16 w-full my-auto">
+                <div class="max-w-2xl space-y-5 sm:space-y-6">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-light/10 border border-brand-light/30 text-brand-light text-xs font-semibold backdrop-blur-sm" data-aos="fade-down">
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-light"></span>
                         통합치의학과 전문의 대표원장 홍길동
                     </div>
 
-                    <h1 class="text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.3] tracking-tight text-white" data-aos="fade-down" data-aos-delay="100">
+                    <h1 class="text-[22px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.3] tracking-tight text-white" data-aos="fade-down" data-aos-delay="100">
                         <span class="text-brand-light">아프지 않게, 필요한 만큼만.</span><br>
                         30년 전문의가 끝까지 책임집니다.
                     </h1>
 
-                    <p class="text-[16px] sm:text-[18px] text-slate-300 font-normal leading-[1.8]" data-aos="fade-down" data-aos-delay="200">
+                    <p class="hidden sm:block text-[16px] sm:text-[18px] text-slate-300 font-normal leading-[1.8]" data-aos="fade-down" data-aos-delay="200">
                         30년 노하우와 미세 진단 시스템으로 불필요한 과잉진료 없이,<br class="hidden sm:block">
                         자연치아를 소중히 지키는 진심 어린 치과가 되겠습니다.
                     </p>
 
                     <div class="flex items-center gap-4 pt-4" data-aos="fade-up" data-aos-delay="300">
-                        <a href="#inc05" class="px-8 py-4 bg-transparent border border-white text-white hover:bg-white/80 hover:border-transparent hover:text-navy-950 font-bold rounded-full transition-all duration-300 flex items-center gap-2 group">
+                        <a href="#inc05" class="px-6 py-3 sm:px-8 sm:py-4 text-[15px] sm:text-base bg-transparent border border-white text-white hover:bg-white/80 hover:border-transparent hover:text-navy-950 font-bold rounded-full transition-all duration-300 flex items-center gap-2 group">
                             <span>진료 예약하기</span>
                             <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
                         </a>
                         <div class="flex items-center gap-2">
-                            <button class="main_prev btn-swiper-arrow"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-                            <button class="main_next btn-swiper-arrow"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+                            <button class="main_prev btn-swiper-arrow max-sm:w-[42px] max-sm:h-[42px]" aria-label="이전 슬라이드"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+                            <button class="main_next btn-swiper-arrow max-sm:w-[42px] max-sm:h-[42px]" aria-label="다음 슬라이드"><i class="fa-solid fa-chevron-right text-sm"></i></button>
                         </div>
                     </div>
                 </div>
@@ -463,21 +461,22 @@ body {
 
             <!-- Bottom Info Bar -->
             <div class="relative z-20 bg-navy-950/90 border-t border-slate-800/80 backdrop-blur-md">
-                <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div class="flex flex-wrap items-center gap-6 text-center md:text-left">
+                <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+                    <!-- 모바일: 아래 버튼 2칸과 같은 그리드 / PC: 한 줄 -->
+                    <div class="grid grid-cols-2 gap-3 items-end text-left md:flex md:flex-wrap md:items-center md:gap-6">
                         <div>
-                            <span class="text-sm text-slate-400 block mb-1">예약 · 상담 안내</span>
-                            <b class="text-[28px] sm:text-[34px] text-white font-extrabold tracking-wide">1544-0634</b>
+                            <span class="text-[13px] sm:text-sm text-slate-400 block mb-1">예약 · 상담 안내</span>
+                            <b class="text-[26px] sm:text-[34px] text-white font-extrabold tracking-wide leading-none">1544-0634</b>
                         </div>
-                        <div class="h-12 w-px bg-slate-700 hidden sm:block"></div>
-                        <div class="text-sm sm:text-[15px] text-slate-300 space-y-1">
+                        <div class="h-12 w-px bg-slate-700 hidden md:block"></div>
+                        <div class="text-[13px] sm:text-sm md:text-[15px] text-slate-300 space-y-1 leading-[1.5]">
                             <p><span class="text-brand-light font-semibold">평 일:</span> 10:00 ~ 18:00 (야간진료 목 ~ 21:00)</p>
                             <p><span class="text-brand-light font-semibold">토요일:</span> 10:00 ~ 14:00 (점심시간 없음)</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3 w-full md:w-auto">
                         <a href="#" class="flex-1 md:flex-none text-center px-7 py-3.5 bg-[#FEE500] hover:bg-yellow-400 text-slate-900 font-bold text-sm sm:text-[15px] rounded-xl transition-all shadow-md">
-                            <i class="fa-solid fa-comment mr-1.5"></i> 카카오톡 상담
+                            <svg class="inline-block w-4 h-4 mr-1.5 -mt-0.5 align-middle" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.83 1.84 5.31 4.6 6.73-.2.73-.73 2.65-.84 3.06-.13.51.19.5.39.37.16-.11 2.55-1.73 3.58-2.43.74.11 1.5.17 2.27.17 5.52 0 10-3.58 10-8S17.52 3 12 3z"/></svg>카카오톡 상담
                         </a>
                         <a href="#" class="flex-1 md:flex-none text-center px-7 py-3.5 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold text-sm sm:text-[15px] rounded-xl transition-all shadow-md">
                             <i class="fa-solid fa-b mr-1.5"></i> 공식 블로그
@@ -493,8 +492,8 @@ body {
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
                     <span class="text-brand-dark font-bold text-sm sm:text-base tracking-wide block mb-3">믿음가는 치과, 건강한 미소</span>
                     <h2 class="text-[30px] sm:text-[36px] font-extrabold text-slate-900 leading-[1.45]">
-                        건강한 미소를 디자인하는<br class="hidden sm:inline">
-                        파인치과의 맞춤 치료
+                        건강한 미소를 디자인하는 파인치과의 진료<br class="hidden sm:inline">
+                        맞춤 치료로 함께합니다.
                     </h2>
                 </div>
 
