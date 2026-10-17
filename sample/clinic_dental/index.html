@@ -410,7 +410,7 @@ body {
         </header>
 
         <!-- 2. Hero Visual Banner Slider (헤더 밑으로 -mt-20 겹침) -->
-        <section id="mainVisual" class="relative -mt-20 bg-navy-900 text-white min-h-[660px] lg:min-h-[720px] flex flex-col justify-between overflow-hidden">
+        <section id="mainVisual" class="relative -mt-20 bg-navy-900 text-white min-h-[600px] sm:min-h-[720px] lg:min-h-[max(720px,calc(100svh-150px))] flex flex-col justify-between overflow-hidden">
 
             <!-- Swiper Background Slider -->
             <div class="swiper MainSwiper absolute inset-0 z-0 w-full h-full">
@@ -459,6 +459,12 @@ body {
                 </div>
             </div>
 
+            <!-- 스크롤 유도 (PC) -->
+            <a href="#inc01" class="hidden lg:flex absolute left-1/2 -translate-x-1/2 bottom-[126px] z-20 flex-col items-center gap-1 text-white/60 hover:text-white transition-colors" aria-label="아래로 스크롤">
+                <span class="text-[11px] font-semibold tracking-[0.3em]">SCROLL</span>
+                <span class="material-symbols-outlined text-2xl animate-bounce">keyboard_arrow_down</span>
+            </a>
+
             <!-- Bottom Info Bar -->
             <div class="relative z-20 bg-navy-950/90 border-t border-slate-800/80 backdrop-blur-md">
                 <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
@@ -489,10 +495,10 @@ body {
         <!-- 3. Section 01: Specialized Treatment Image Cards Carousel -->
         <section id="inc01" class="py-24 bg-slate-50">
             <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-down" data-aos-duration="1000">
                     <span class="text-brand-dark font-bold text-sm sm:text-base tracking-wide block mb-3">믿음가는 치과, 건강한 미소</span>
-                    <h2 class="text-[30px] sm:text-[36px] font-extrabold text-slate-900 leading-[1.45]">
-                        건강한 미소를 디자인하는<br class="hidden sm:inline">
+                    <h2 class="text-[26px] sm:text-[36px] font-extrabold text-slate-900 leading-[1.45]">
+                        건강한 미소를 디자인하는<br>
                         파인치과의 맞춤 치료
                     </h2>
                 </div>
