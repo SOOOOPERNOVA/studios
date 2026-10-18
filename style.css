@@ -24,7 +24,7 @@
    ========================================================= */
 :root{
   --paper:#ffffff;
-  --ink:#1A1A1A;
+  --ink:#292929;
   --ink-soft:#4a4a4a;
   --mute:#696969;
   --faint:#c9c9c9;
@@ -127,11 +127,14 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .intro{
   max-width:var(--maxw);margin:0 auto;
   padding:clamp(40px,7vw,84px) clamp(20px,3vw,48px) clamp(26px,3vw,40px);
+ 
 }
 .intro h1{
-  font-family:var(--body);font-weight:600;
+  font-family:var(--body);font-weight:500;
   font-size:clamp(28px,4.4vw,56px);line-height:1.05;
   letter-spacing:-.03em;margin:0 0 16px;max-width:none;
+  color: #2e2e2e;
+
 }
 .intro h1 em{font-style:normal;color:var(--faint);}
 .intro h1 .amp{ /* 세리프 포인트 — Fraunces 정체 */
@@ -147,7 +150,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-family:var(--body);font-weight:500;
   font-size:clamp(20px,2.8vw,32px);line-height:1.25;letter-spacing:-.02em;
   text-indent:5px;
-  color:var(--ink);max-width:none;
+  color:#2e2e2e;max-width:none;
   margin:clamp(10px,1.2vw,18px) 0 0;
 }
 .intro p.intro__lead .solve{
