@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ONT | wordpress Website</title>
+  <meta name="robots" content="noindex, nofollow">
+  <title>웹진 - 워드프레스 웹진 샘플</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome Icons -->
@@ -81,6 +82,23 @@
   </style>
 </head>
 <body>
+
+  <!-- Top Notice Banner Bar (샘플 안내) -->
+  <div id="sampleNotice" class="relative z-50 bg-[#FCEBE3] border-b border-[#F5CDBB] text-[#A63A12]">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-center gap-3 sm:gap-4 pr-12 text-center">
+      <span class="hidden sm:inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#E5511E] text-white text-xs font-extrabold tracking-wider px-3 py-1">
+        <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-white opacity-60 animate-ping"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-white"></span></span>
+        SAMPLE
+      </span>
+      <p class="text-sm sm:text-[15px] leading-[1.6]">
+        <b class="font-bold">본 페이지는 포트폴리오용 샘플 페이지입니다.</b>
+        <span class="block sm:inline text-[12px] sm:text-[15px] leading-[1.5] mt-0.5 sm:mt-0 font-medium">샘플은 메인 페이지만 제공되며, 실제 제작 시 워드프레스 기반 반응형 웹진으로 구현됩니다.</span>
+      </p>
+    </div>
+    <button type="button" onclick="document.getElementById('sampleNotice').remove()" class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-[#A63A12] hover:bg-[#E5511E]/10 transition" aria-label="안내 닫기">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
 
   <!-- 1. Top Announcement Marquee Bar -->
   <div class="w-full bg-[#d8d7f4] text-[#353535] text-xs py-2 overflow-hidden relative">
