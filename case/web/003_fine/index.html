@@ -14,8 +14,8 @@
 <link rel="canonical" href="https://studios.ont.co.kr/case/web/003_fine/" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Gowun+Batang:wght@400;700&family=Space+Grotesk:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand:wght@400;500;600&family=EB+Garamond:ital,wght@1,400;1,500&family=Fraunces:opsz,wght@9..144,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" />
 
 <!-- 경로 기준: case/web/003_fine/index.html (루트에서 3단계 깊이) -->
 <link rel="stylesheet" href="../../../style.css" />
@@ -76,70 +76,6 @@
 
       <!-- ① 이미지 (기본) — 폭 1200~1600px, 웹용 JPG/WebP 압축 -->
       <img src="image.webp" alt="프로젝트명 대표 이미지">
-
-      <!-- ② 갤러리 (여러 컷 넘겨보기) — 쓸 때 주석 풀기
-      <div class="gallery gallery--stack">
-        <button class="gallery__btn gallery__btn--prev" aria-label="이전">‹</button>
-        <div class="gallery__track">
-          <div class="gallery__slide"><img src="shot1.jpg" alt=""></div>
-          <div class="gallery__slide"><img src="shot2.jpg" alt=""></div>
-          <div class="gallery__slide"><img src="shot3.jpg" alt=""></div>
-        </div>
-        <button class="gallery__btn gallery__btn--next" aria-label="다음">›</button>
-      </div>
-      -->
-
-      <!-- ─────────────────────────────────────
-           ③ 유튜브 임베드 (case__yt) — 영상ID만 교체
-              · 일반 영상: watch?v=XXXX 의 XXXX
-              · 숏츠: youtube.com/shorts/XXXX 의 XXXX (?si= 꼬리는 버림)
-           ─────────────────────────────────────
-
-           ③-1. 가로 한 개 (16:9 · 전체 폭)
-      <div class="case__yt">
-        <iframe src="https://www.youtube.com/embed/영상ID" allowfullscreen loading="lazy"></iframe>
-      </div>
-
-           ③-2. 숏츠 한 개 (9:16 · 폭 제한)
-      <div class="case__yt" style="aspect-ratio:9/16;max-width:520px;">
-        <iframe src="https://www.youtube.com/embed/영상ID" allowfullscreen loading="lazy"></iframe>
-      </div>
-
-           ③-3. 숏츠 여러 개 (2열 · max-width 쓰지 않음!)
-      <div class="case__cols">
-        <div class="case__yt" style="aspect-ratio:9/16;">
-          <iframe src="https://www.youtube.com/embed/영상ID1" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="case__yt" style="aspect-ratio:9/16;">
-          <iframe src="https://www.youtube.com/embed/영상ID2" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
-      -->
-
-      <!-- ─────────────────────────────────────
-           ④ 직접 올린 mp4 — 파일을 폴더에 넣고 사용
-              · 1080p 이하 / 10MB 이하 압축, poster 권장
-           ─────────────────────────────────────
-
-           ④-1. 자동재생 무음 루프 — 분위기용 모션 (소리 불가, muted 필수)
-      <video src="work.mp4" autoplay muted loop playsinline
-             style="width:100%;height:auto;display:block;"></video>
-
-           ④-2. 가로 한 개 + 재생버튼 + 소리 (16:9 · 1열)
-      <div class="case__cols" style="grid-template-columns:1fr;">
-        <video class="case__mp4" src="work.mp4" poster="cover.webp"
-               style="aspect-ratio:16/9;"
-               muted playsinline preload="metadata"></video>
-      </div>
-
-           ④-3. 세로 숏폼 여러 개 + 재생버튼 + 소리 (9:16 · 2열)
-      <div class="case__cols">
-        <video class="case__mp4" src="ep01.mp4" poster="ep01.webp"
-               muted playsinline preload="metadata"></video>
-        <video class="case__mp4" src="ep02.mp4" poster="ep02.webp"
-               muted playsinline preload="metadata"></video>
-      </div>
-      -->
 
     </div>
     <!-- ================= /미디어 영역 ================= -->
