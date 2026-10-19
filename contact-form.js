@@ -16,14 +16,14 @@
 
   /* --- 이 기능 전용 스타일 주입 (styles.css 안 건드림) --- */
   var css =
-    '.form__status{font-size:15px;line-height:1.7;color:#555;margin:6px 0 0;}' +
+    '.form__status{font-size:15px;line-height:1.7;color:#333;margin:6px 0 0;}' +
     '.form__status:empty{display:none;}' +
     '.form__status.is-err{color:#c0392b;}' +
     '.form.is-sent > *{display:none;}' +
     '.form.is-sent .form__status{display:block;text-align:center;padding:48px 0;}' +
     '.form.is-sent .form__status .t{display:block;font-size:clamp(20px,2.4vw,26px);' +
       'font-weight:600;color:#111;letter-spacing:-.02em;margin-bottom:10px;}' +
-    '.form.is-sent .form__status .s{display:block;font-size:15px;color:#555;}';
+    '.form.is-sent .form__status .s{display:block;font-size:15px;color:#333;}';
   var style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
@@ -36,13 +36,14 @@
   form.appendChild(status);
 
   var btn = form.querySelector('button[type="submit"]');
-  var btnLabel = btn ? btn.textContent : '문의 보내기 →';
+  var btnTxt = btn ? (btn.querySelector('.btn-hl__txt') || btn) : null;  // 버튼 안 글자 span만 바꿈 (밑줄 장식 유지)
+  var btnLabel = btnTxt ? btnTxt.textContent : '문의 보내기';
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     status.className = 'form__status';
     status.textContent = '';
-    if (btn) { btn.disabled = true; btn.textContent = '보내는 중…'; }
+    if (btn) { btn.disabled = true; btnTxt.textContent = '보내는 중…'; }
 
     fetch(action, {
       method: 'POST',
@@ -67,10 +68,11 @@
     })
     .catch(function () {
       status.classList.add('is-err');
-      status.textContent = '전송에 실패했어요. 잠시 후 다시 시도하거나 이메일로 연락 주세요.';
+      status.innerHTML = '전송에 실패했어요. 잠시 후 다시 시도하거나 ' +
+        '<a href="mailto:studios@ont.co.kr" style="text-decoration:underline">studios@ont.co.kr</a> 로 연락 주세요.';
     })
     .finally(function () {
-      if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+      if (btn) { btn.disabled = false; btnTxt.textContent = btnLabel; }
     });
   });
 })();

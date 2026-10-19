@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ONT STUDIOS | 웹사이트 제작은 오앤티!</title>
+<title>ONT STUDIOS | 웹사이트제작 브랜드디자인은 오앤티!</title>
 <meta name="description" content="명확하고 투명하게, 오직 필요한 것에만 집중합니다. 웹·앱 개발, 브랜드 디자인, 콘텐츠 제작, 비주얼그래픽은 오앤티 ONT STUDIOS!" />
 <meta property="og:description" content="웹·앱 개발, 브랜드 디자인, 콘텐츠 제작, 비주얼그래픽은 오앤티!" />
 <meta property="og:type" content="website" />
@@ -59,15 +59,15 @@
         <input id="name" name="name" type="text" placeholder="" required />
       </div>
       <div class="field">
-        <label for="company">직함 / 회사·브랜드명</label>
-        <input id="company" name="company" type="text" placeholder="예: ○○브랜드 담당자 / 개인" />
+        <label for="company">회사 · 브랜드명</label>
+        <input id="company" name="company" type="text" placeholder="예: ○○브랜드 마케팅팀 / 개인" />
       </div>
     </div>
 
     <div class="form__row">
       <div class="field">
         <label for="email">이메일 <span class="req">*</span></label>
-        <input id="email" name="email" type="email" placeholder="회신받을 이메일" required />
+        <input id="email" name="email" type="email" placeholder="회신받으실 이메일" required />
       </div>
       <div class="field">
         <label for="phone">연락처</label>
@@ -80,55 +80,45 @@
         <label for="type">프로젝트 유형 <span class="req">*</span></label>
         <select id="type" name="type" required>
           <option value="" disabled selected>선택해주세요</option>
-          <option>웹 · 앱 개발</option>
-          <option>콘텐츠 제작</option>
+          <option>웹·앱 개발</option>
           <option>브랜드 디자인</option>
-          <option>비주얼 · 아트웍</option>
-          <option>기타</option>
+          <option>비주얼 그래픽</option>
+          <option>콘텐츠 제작</option>
+          <option>아직 잘 모르겠어요 · 상담 원해요</option>
         </select>
       </div>
       <div class="field">
-        <label for="budget">예산<span class="req">*</span></label>
-        <select id="budget" name="budget" required>
+        <label for="timeline">희망 일정</label>
+        <select id="timeline" name="timeline">
           <option value="" disabled selected>선택해주세요</option>
-          <option>100만원 이하</option>
-          <option>100–300만원</option>
-          <option>300–500만원</option>
-          <option>500–1,000만원</option>
-          <option>1,000만원 이상</option>
-          <option>미정</option>
+          <option>최대한 빨리 (2주 이내)</option>
+          <option>1개월 이내</option>
+          <option>1–3개월</option>
+          <option>3개월 이상</option>
+          <option>아직 정하지 않았어요</option>
         </select>
       </div>
     </div>
 
-<div class="form__row">
-  <div class="field">
-    <label for="timeline">희망 일정</label>
-    <select id="timeline" name="timeline">
-      <option value="" disabled selected>선택해주세요</option>
-      <option>2주 이내 (급함)</option>
-      <option>1개월 이내</option>
-      <option>1–3개월</option>
-      <option>3개월 이상</option>
-      <option>미정</option>
-    </select>
-  </div>
-<div class="field">
-  <label for="plan">기획서 / 요구사항 자료</label>
-  <select id="plan" name="plan">
-    <option value="" disabled selected>선택해주세요</option>
-    <option>있음 — 기획서·요구사항 보유</option>
-    <option>일부 있음 — 대략적인 정리</option>
-    <option>없음</option>
-  </select>
-</div>
-</div>
-
+    <div class="form__row">
+      <div class="field">
+        <label for="kind">진행 형태</label>
+        <select id="kind" name="kind">
+          <option value="" disabled selected>선택해주세요</option>
+          <option>신규 제작</option>
+          <option>리뉴얼 · 리브랜딩</option>
+          <option>유지보수 · 일부 수정</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="refs">기존 사이트 · 참고 자료 링크</label>
+        <input id="refs" name="reference_link" type="text" inputmode="url" placeholder="기존 사이트, 기획서(드라이브, 노션 등), 참고 사이트 URL" />
+      </div>
+    </div>
 
     <div class="field field--full">
       <label for="message">문의 내용 <span class="req">*</span></label>
-      <textarea id="message" name="message" placeholder="어떤 프로젝트인지, 원하는 결과나 분위기를 자유롭게 적어주세요.
-참고하고 싶은 사이트나 기획서 링크가 있다면 함께 남겨주세요. (정리된 자료는 studios@ont.co.kr 로 보내주셔도 됩니다.)" required></textarea>
+      <textarea id="message" name="message" placeholder="어떤 프로젝트인지, 원하는 결과나 분위기를 자유롭게 적어주세요. 참고할 레퍼런스가 있다면 URL로 남겨주세요." required></textarea>
     </div>
 
     <label class="agree">
