@@ -1,10 +1,7 @@
 /* ============================================================
    ONT — Contact form (Formspree AJAX)
    페이지 이동 없이, 그 자리에서 "접수 완료" 메시지를 띄움.
-
-   사용법: contact.html 의 </body> 바로 위에 아래 한 줄 추가
        <script src="contact-form.js"></script>
-   (기존 styles.css / script.js 는 수정할 필요 없음)
    ============================================================ */
 (function () {
   var form = document.querySelector('.form');
@@ -39,15 +36,45 @@
   var btnTxt = btn ? (btn.querySelector('.btn-hl__txt') || btn) : null;  // 버튼 안 글자 span만 바꿈 (밑줄 장식 유지)
   var btnLabel = btnTxt ? btnTxt.textContent : '문의 보내기';
 
+  /* --- 링크 입력란: https:// 자동 보정 ---
+     공백 없는 한 덩어리 주소일 때만 (여러 개·설명 섞인 입력은 그대로 둠) */
+  function fixUrl(el) {
+    var v = el.value.trim();
+    if (v && !/\s/.test(v) && v.indexOf('.') > -1 && !/^[a-z][a-z0-9+.-]*:\/\//i.test(v)) {
+      el.value = 'https://' + v;
+    }
+  }
+  var urlFields = form.querySelectorAll('input[inputmode="url"]');
+  urlFields.forEach(function (el) {
+    el.addEventListener('blur', function () { fixUrl(el); });
+  });
+
+  /* --- 메일 제목용 유형 이름 (긴 선택지는 짧게) --- */
+  var TYPE_LABEL = {
+    '아직 잘 모르겠어요 · 상담 원해요': '상담'
+  };
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    urlFields.forEach(fixUrl);   // 엔터로 바로 제출한 경우 대비
     status.className = 'form__status';
     status.textContent = '';
     if (btn) { btn.disabled = true; btnTxt.textContent = '보내는 중…'; }
 
+    /* --- 메일 제목: [ONT Studios] 유형 문의 · 이름 --- */
+    var fd = new FormData(form);
+    if (!fd.get('_subject')) {
+      var type = (fd.get('type') || '').toString().trim();
+      type = TYPE_LABEL[type] || type;
+      var who  = (fd.get('name') || '').toString().trim();
+      var subj = '[ONT Studios] ' + (type ? type + ' 문의' : '프로젝트 문의');
+      if (who) subj += ' · ' + who;
+      fd.set('_subject', subj);
+    }
+
     fetch(action, {
       method: 'POST',
-      body: new FormData(form),
+      body: fd,
       headers: { 'Accept': 'application/json' }
     })
     .then(function (res) {
@@ -55,7 +82,7 @@
         form.reset();
         status.innerHTML =
           '<span class="t">문의가 접수되었습니다 ✓</span>' +
-          '<span class="s">감사합니다.</span>';
+          '<span class="s">감사합니다. 영업일 기준 순차적으로 회신드립니다.</span>';
         form.classList.add('is-sent');
       } else {
         return res.json().then(function (d) {

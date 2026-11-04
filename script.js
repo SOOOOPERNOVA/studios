@@ -186,3 +186,4 @@
     loader.classList.remove('is-active');
   });
 })();
+
